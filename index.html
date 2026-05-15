@@ -12,152 +12,319 @@
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <style>
-        /* Estilos generales */
-        body { font-family: 'Arial', 'Ubuntu', system-ui, sans-serif; }
-        .heading-font { font-family: 'Arial', 'Ubuntu', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
-        .hero-bg { background: linear-gradient(rgba(0, 48, 135, 0.85), rgba(0, 48, 135, 0.85)), url('https://picsum.photos/id/1015/2000/1200'); background-size: cover; background-position: center; }
-        .nav-link { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .nav-link:hover { color: #003087; transform: translateY(-2px); }
-        .timeline-item { transition: all 0.3s ease; }
-        .timeline-item:hover { transform: translateX(10px); }
-        .data-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .data-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); }
-        canvas { max-height: 380px; width: 100% !important; }
-        .highlight-bg { background-color: #ffff99; transition: background 0.3s; }
+/* ============================================
+   ESTILOS GENERALES (pantalla)
+   ============================================ */
+body { font-family: 'Arial', 'Ubuntu', system-ui, sans-serif; }
+.heading-font { font-family: 'Arial', 'Ubuntu', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+.hero-bg { background: linear-gradient(rgba(0, 48, 135, 0.85), rgba(0, 48, 135, 0.85)), url('https://picsum.photos/id/1015/2000/1200'); background-size: cover; background-position: center; }
+.nav-link { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+.nav-link:hover { color: #003087; transform: translateY(-2px); }
+.timeline-item { transition: all 0.3s ease; }
+.timeline-item:hover { transform: translateX(10px); }
+.data-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.data-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); }
+canvas { max-height: 380px; width: 100% !important; }
+.highlight-bg { background-color: #ffff99; transition: background 0.3s; }
 
-        /* ESTILOS DE IMPRESIÓN PARA REPORTE PROFESIONAL */
-        @media print {
-            /* Ocultar elementos no deseados */
-            nav, .print\:hidden, .hero-bg .flex.flex-wrap.gap-4, .fixed.inset-0, button[onclick*="window.print"], 
-            .nav-link, .px-4.py-2.bg-\[\#003087\], footer .fa-brands, .data-card, .timeline-item:hover, 
-            .nav-link:hover, canvas, .bg-white.shadow, .shadow, .shadow-xl, .data-card, button, 
-            #modal-container, .modal, .fixed.inset-0, [id^="modal-"] {
-                display: none !important;
-            }
+/* ============================================
+   MEJORAS SECCIÓN 1 (INTRO)
+   ============================================ */
+#intro {
+    margin-bottom: 2rem;
+}
+#intro .grid {
+    align-items: center;
+}
+#intro h2 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+#intro h2:after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: #003087;
+    border-radius: 2px;
+}
+#intro .bg-white.rounded-2xl {
+    background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+    border: 1px solid rgba(0,48,135,0.1);
+    box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+}
+#intro .bg-white .text-4xl {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+#intro .bg-white .text-xs.uppercase {
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+#intro .h-px {
+    background: linear-gradient(to right, #e2e8f0, #003087, #e2e8f0);
+}
+#intro .text-center .font-semibold {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #334155;
+}
+#intro .text-center .text-2xl {
+    font-weight: 800;
+    color: #003087;
+}
 
-            /* Configuración de página */
-            @page {
-                margin: 1cm 1cm 1cm 1.5cm; /* izquierdo 1.5cm, derecho estrecho 1cm */
-                size: letter;
-            }
+/* ============================================
+   CORRECCIÓN RADICAL PARA SALTO DE PÁGINA (SECCIÓN 3)
+   ============================================ */
+/* Forzar que ningún elemento de la sección 3 genere salto de página */
+#renovacion,
+#renovacion *,
+#renovacion > div,
+#renovacion .overflow-x-auto,
+#renovacion .shadow-xl.rounded-2xl.border,
+#renovacion table,
+#renovacion tbody,
+#renovacion tr,
+#renovacion td,
+#renovacion th {
+    page-break-before: avoid !important;
+    page-break-after: avoid !important;
+    page-break-inside: avoid !important;
+    break-before: avoid !important;
+    break-after: avoid !important;
+    break-inside: avoid !important;
+}
 
-            /* Reset de estilos para impresión */
-            body, .bg-gray-50, .bg-white, .hero-bg, section, div, header, footer, main, .rounded-2xl, .p-6, .p-10 {
-                background: white !important;
-                color: black !important;
-                box-shadow: none !important;
-                border: none !important;
-                background-color: white !important;
-            }
+/* Especialmente para el contenedor de la tabla */
+#renovacion .overflow-x-auto {
+    display: block;
+    overflow-x: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
 
-            body {
-                font-family: 'Arial', sans-serif !important;
-                font-size: 12pt !important;
-                line-height: 1.5 !important;
-                text-align: justify !important;
-                margin: 0 !important;
-                padding: 0 !important;
-            }
+/* Eliminar márgenes superiores e inferiores que puedan causar saltos */
+#renovacion {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
 
-            /* Tipografía */
-            h1, h2, h3, h4, .heading-font, .font-bold {
-                font-family: 'Arial', sans-serif !important;
-                font-weight: bold !important;
-                text-align: left !important;
-                page-break-after: avoid;
-                color: black !important;
-            }
-            h1 { font-size: 24pt; margin-bottom: 0.5cm; }
-            h2 { font-size: 18pt; margin-top: 0.8cm; margin-bottom: 0.4cm; }
-            h3 { font-size: 14pt; margin-top: 0.5cm; margin-bottom: 0.3cm; }
-            p, li, .text-gray-600, .text-gray-700, .text-sm, .text-xs, .prose, .prose-sm, .prose-lg {
-                font-size: 12pt !important;
-                line-height: 1.5 !important;
-                color: black !important;
-                text-align: justify !important;
-            }
+/* La tabla en sí misma: permitir que se rompa dentro si es muy larga, pero sin saltos forzados */
+#renovacion table {
+    page-break-inside: auto;
+    break-inside: auto;
+}
 
-            /* Enlaces */
-            a {
-                text-decoration: none;
-                color: black;
-            }
+/* ============================================
+   ESTILOS PARA IMPRESIÓN (CORREGIDOS)
+   ============================================ */
+@media print {
+    /* Ocultar elementos interactivos */
+    nav, .print\:hidden, .hero-bg .flex.flex-wrap.gap-4, button, 
+    .nav-link, .px-4.py-2.bg-\[\#003087\], footer .fa-brands, 
+    .timeline-item:hover, .nav-link:hover, 
+    #modal-container, .modal, .fixed.inset-0, [id^="modal-"], #renovacion {
+        display: none !important;
+    }
 
-            /* Tablas */
-            table {
-                width: 100%;
-                border-collapse: collapse;
-                page-break-inside: avoid;
-                margin: 0.5cm 0;
-            }
-            th, td {
-                border: 1px solid #aaa;
-                padding: 6pt;
-                font-size: 11pt;
-                text-align: left;
-                vertical-align: top;
-            }
-            th {
-                background: #eee !important;
-                font-weight: bold;
-            }
+    /* Configuración de página */
+    @page {
+        margin: 1.5cm 1cm 1cm 1.5cm;
+        size: letter;
+    }
 
-            /* Hero header impresión */
-            .hero-bg {
-                background: #003087 !important;
-                color: white !important;
-                padding: 0.5cm !important;
-                margin-bottom: 0.5cm;
-            }
-            .hero-bg h1, .hero-bg p {
-                color: white !important;
-            }
+    /* Reset de fondos y colores */
+    body, .bg-gray-50, .bg-white, .hero-bg, section, div, header, footer, main, 
+    .rounded-2xl, .p-6, .p-10, .shadow, .shadow-xl, .bg-white\/10, 
+    .bg-emerald-50, .bg-blue-50, .bg-amber-50, .bg-gray-100 {
+        background: white !important;
+        color: black !important;
+        box-shadow: none !important;
+        border: none !important;
+        background-color: white !important;
+    }
 
-            /* Secciones y contenedores */
-            section, .timeline-item, .grid, .overflow-x-auto {
-                page-break-inside: avoid;
-                margin-bottom: 0.5cm;
-            }
+    body {
+        font-family: 'Arial', sans-serif !important;
+        font-size: 12pt !important;
+        line-height: 1.4 !important;
+        text-align: justify !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
 
-            /* Tarjetas y datos en impresión se convierten en texto plano */
-            .bg-white.rounded-2xl.p-5, .bg-white.rounded-2xl.p-4 {
-                border: 1px solid #ccc !important;
-                padding: 8pt !important;
-                margin-bottom: 0.3cm;
-            }
+    h1, h2, h3, h4, .heading-font, .font-bold {
+        font-family: 'Arial', sans-serif !important;
+        font-weight: bold !important;
+        text-align: left !important;
+        page-break-after: avoid;
+        color: black !important;
+    }
+    h1 { font-size: 22pt; margin-bottom: 0.4cm; }
+    h2 { font-size: 18pt; margin-top: 0.6cm; margin-bottom: 0.3cm; }
+    h3 { font-size: 14pt; margin-top: 0.4cm; margin-bottom: 0.2cm; }
 
-            /* Ocultar elementos de gráficos y sombras */
-            .shadow, .shadow-sm, .shadow-md, .shadow-xl {
-                box-shadow: none !important;
-            }
+    p, li, .text-gray-600, .text-gray-700, .text-sm, .text-xs, 
+    .prose, .prose-sm, .prose-lg, .text-emerald-800, .text-blue-800, 
+    .text-amber-700, .text-gray-700 {
+        font-size: 12pt !important;
+        line-height: 1.4 !important;
+        color: black !important;
+        text-align: justify !important;
+    }
 
-            /* Ajuste de márgenes internos */
-            .max-w-7xl {
-                max-width: 100% !important;
-                padding: 0 !important;
-                margin: 0 !important;
-            }
-            .px-4, .sm\:px-6 {
-                padding-left: 0 !important;
-                padding-right: 0 !important;
-            }
-            .py-10, .md\:py-12 {
-                padding-top: 0.2cm !important;
-                padding-bottom: 0.2cm !important;
-            }
+    a, .cita-link {
+        text-decoration: none !important;
+        color: black !important;
+    }
 
-            /* Mostrar contenido de modales? No, ocultar */
-            .modal, [class*="modal"] {
-                display: none !important;
-            }
+    /* Tablas generales */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0.4cm 0;
+        font-size: 11pt;
+        page-break-inside: auto;
+        break-inside: auto;
+    }
+    th, td {
+        border: 1px solid #aaa !important;
+        padding: 8pt;
+        text-align: left;
+        vertical-align: top;
+    }
+    th {
+        background: #eee !important;
+        font-weight: bold;
+    }
 
-            /* Forzar fondo blanco en todos los elementos */
-            * {
-                background-color: transparent !important;
-                color: black !important;
-                text-shadow: none !important;
-            }
-        }
+    /* SECCIÓN 3: eliminar por completo cualquier salto de página */
+    #renovacion,
+    #renovacion .overflow-x-auto,
+    #renovacion .shadow-xl.rounded-2xl.border,
+    #renovacion table,
+    #renovacion tbody,
+    #renovacion tr {
+        page-break-before: avoid !important;
+        page-break-after: avoid !important;
+        break-before: avoid !important;
+        break-after: avoid !important;
+        page-break-inside: auto !important;  /* Permite que la tabla larga se divida */
+        break-inside: auto !important;
+    }
+    /* Evitar que haya un salto justo antes o después de la sección */
+    #renovacion {
+        page-break-before: avoid !important;
+        page-break-after: avoid !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* Sección 4: gráficos y datos en grid */
+    canvas {
+        display: block !important;
+        visibility: visible !important;
+        max-width: 100% !important;
+        height: auto !important;
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+    .bg-white.p-5.rounded-2xl.shadow {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    /* Mostrar las tarjetas de datos (exportaciones, IED, etc.) */
+    .data-card {
+        display: block !important;
+        border: 1px solid #ccc !important;
+        background: white !important;
+        margin-bottom: 0.5rem;
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    /* Configurar el grid de la sección 4 */
+    #impacto .lg\:grid-cols-12 {
+        display: grid !important;
+        grid-template-columns: repeat(12, 1fr) !important;
+        gap: 1.5rem !important;
+    }
+    #impacto .lg\:col-span-7 {
+        grid-column: span 7 / span 7 !important;
+    }
+    #impacto .lg\:col-span-5 {
+        grid-column: span 5 / span 5 !important;
+    }
+    #impacto .space-y-4 {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+    #impacto .grid-cols-2 {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.75rem !important;
+        margin-top: 1rem !important;
+    }
+    #impacto .bg-white.rounded-2xl.p-5,
+    #impacto .bg-white.rounded-2xl.p-4 {
+        border: 1px solid #ccc !important;
+        background: white !important;
+        page-break-inside: avoid;
+    }
+
+    /* Hero header */
+    .hero-bg {
+        background: #003087 !important;
+        color: white !important;
+        padding: 0.3cm !important;
+        margin-bottom: 0.5cm;
+        text-align: center;
+    }
+    .hero-bg h1, .hero-bg p {
+        color: white !important;
+    }
+
+    /* Tabla completa de capítulos para impresión (ocultar la versión interactiva) */
+    #tabla-completa-impresion {
+        display: block !important;
+        margin-top: 1cm;
+        page-break-before: avoid !important;
+        break-before: avoid !important;
+        page-break-after: avoid !important;
+        break-after: avoid !important;
+    }
+    .overflow-x-auto.shadow-xl.rounded-2xl.border {
+        display: none !important;
+    }
+
+    /* Evitar saltos entre secciones */
+    section {
+        page-break-before: avoid;
+        page-break-inside: avoid;
+        page-break-after: avoid;
+    }
+
+    /* Introducción */
+    #intro .grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1.5rem;
+    }
+    #intro .bg-white.rounded-2xl {
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+}
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -246,16 +413,67 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 3: CAPÍTULOS (34) COMPLETAMENTE ACTUALIZADOS SEGÚN PDF -->
-        <section id="renovacion" class="mb-16 md:mb-24 scroll-mt-20">
+        <!-- Tabla completa para impresión (oculta en pantalla) -->
+        <div id="tabla-completa-impresion" style="display: none;">
             <span class="inline-block px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-semibold rounded-full mb-3">SECCIÓN 3 – ARQUITECTURA NORMATIVA (34 CAPÍTULOS)</span>
             <h2 class="text-3xl md:text-4xl font-bold heading-font mb-4">De 22 a 34 capítulos: herencia, modificación y adición</h2>
             <p class="text-gray-600 max-w-3xl mb-6 text-sm md:text-base">El T-MEC reorganizó profundamente la estructura legal del TLCAN. Los <strong>34 capítulos</strong> se clasifican según su origen. Haz clic en "Ver análisis" para acceder a descripción detallada, cambios clave y bibliografía específica basada en el texto oficial del tratado.</p>
+
             <div class="grid grid-cols-3 gap-3 mb-8 max-w-xl">
                 <div class="bg-blue-50 p-3 rounded-xl text-center"><div class="text-2xl font-bold text-blue-700">12</div><div class="text-[11px] uppercase">Nuevos</div></div>
                 <div class="bg-amber-50 p-3 rounded-xl text-center"><div class="text-2xl font-bold text-amber-700">14</div><div class="text-[11px] uppercase">Modificados</div></div>
                 <div class="bg-emerald-50 p-3 rounded-xl text-center"><div class="text-2xl font-bold text-emerald-700">8</div><div class="text-[11px] uppercase">Heredados</div></div>
             </div>
+            <h2 class="text-2xl font-bold mb-4">📋 Análisis detallado de los 34 capítulos del T-MEC</h2>
+            <table class="tabla-impresion">
+                <thead>
+                    <tr>
+                        <th>Cap</th>
+                        <th>Título</th>
+                        <th>Descripción</th>
+                        <th>Análisis económico</th>
+                        <th>Análisis legal</th>
+                        <th>Capítulo TLCAN / cambios</th>
+                        <th>Bibliografía</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody-impresion"></tbody>
+            </table>
+
+            <!-- Tabla comparativa TLCAN vs T-MEC (cambios clave) -->
+            <div class="mt-12">
+                <h3 class="text-xl md:text-2xl font-semibold mb-4">📊 Cambios operativos clave: TLCAN vs T-MEC</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full border-collapse bg-white rounded-2xl overflow-hidden shadow text-xs md:text-sm min-w-[500px]">
+                        <thead><tr class="bg-[#003087] text-white"><th class="p-4 text-left">Tema</th><th class="p-4 text-left">TLCAN (1994)</th><th class="p-4 text-left">T-MEC (2020)</th></tr></thead>
+                        <tbody class="divide-y">
+                            <tr><td class="p-4 font-medium">Reglas de origen automotriz</td><td class="p-4 text-gray-600">62.5% de contenido regional</td><td class="p-4 bg-emerald-50 font-semibold">75% + salario promedio US$16/hora (Artículo 4-B.3)</td></tr>
+                            <tr><td class="p-4 font-medium">Propiedad intelectual</td><td class="p-4 text-gray-600">Estándares básicos (TRIPS)</td><td class="p-4 bg-emerald-50 font-semibold">Protección ampliada: patentes farmacéuticas 10 años, derechos de autor 70 años póstumos (Capítulo 20)</td></tr>
+                            <tr><td class="p-4 font-medium">Agricultura</td><td class="p-4 text-gray-600">Barreras para lácteos, aves y huevo</td><td class="p-4 bg-emerald-50 font-semibold">Mayor acceso a mercados sensibles (Canadá abre 3.5% adicional en lácteos) Capítulo 3</td></tr>
+                            <tr><td class="p-4 font-medium">Solución de controversias</td><td class="p-4 text-gray-600">Capítulo 11 (ISDS) robusto; Capítulo 19 (antidumping)</td><td class="p-4 bg-emerald-50 font-semibold">ISDS eliminado entre México-EE.UU.; se mantiene limitado con Canadá. Capítulo 31</td></tr>
+                            <tr><td class="p-4 font-medium">Cláusula sunset</td><td class="p-4 text-gray-600">No existía (TLCAN era indefinido)</td><td class="p-4 bg-emerald-50 font-semibold">Revisión conjunta cada 6 años. Si no se renueva, expira a los 16 años (Artículo 34.7)</td></tr>
+                            <tr><td class="p-4 font-medium">Trabajo y medio ambiente</td><td class="p-4 text-gray-600">Capítulos paralelos sin mecanismos de sanción</td><td class="p-4 bg-emerald-50 font-semibold">Capítulos vinculantes (23 y 24) con paneles de resolución y posibles multas comerciales</td></tr>
+                            <tr><td class="p-4 font-medium">Comercio digital</td><td class="p-4 text-gray-600">No existía</td><td class="p-4 bg-emerald-50 font-semibold">Capítulo 19: prohibición de aranceles a transmisiones electrónicas, libre flujo de datos</td></tr>
+                            <tr><td class="p-4 font-medium">PYMES</td><td class="p-4 text-gray-600">No existía</td><td class="p-4 bg-emerald-50 font-semibold">Capítulo 25: cooperación y facilitación para pequeñas y medianas empresas</td></tr>
+                            <tr><td class="p-4 font-medium">Anticorrupción</td><td class="p-4 text-gray-600">No existía</td><td class="p-4 bg-emerald-50 font-semibold">Capítulo 27: obligaciones vinculantes contra soborno transnacional</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 3: CAPÍTULOS (34) COMPLETOS CON ARRAY ENRIQUECIDO -->
+        <section id="renovacion" class="mb-16 md:mb-24 scroll-mt-20">
+            <span class="inline-block px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-semibold rounded-full mb-3">SECCIÓN 3 – ARQUITECTURA NORMATIVA (34 CAPÍTULOS)</span>
+            <h2 class="text-3xl md:text-4xl font-bold heading-font mb-4">De 22 a 34 capítulos: herencia, modificación y adición</h2>
+            <p class="text-gray-600 max-w-3xl mb-6 text-sm md:text-base">El T-MEC reorganizó profundamente la estructura legal del TLCAN. Los <strong>34 capítulos</strong> se clasifican según su origen. Haz clic en "Ver análisis" para acceder a descripción detallada, cambios clave y bibliografía específica basada en el texto oficial del tratado.</p>
+
+            <div class="grid grid-cols-3 gap-3 mb-8 max-w-xl">
+                <div class="bg-blue-50 p-3 rounded-xl text-center"><div class="text-2xl font-bold text-blue-700">12</div><div class="text-[11px] uppercase">Nuevos</div></div>
+                <div class="bg-amber-50 p-3 rounded-xl text-center"><div class="text-2xl font-bold text-amber-700">14</div><div class="text-[11px] uppercase">Modificados</div></div>
+                <div class="bg-emerald-50 p-3 rounded-xl text-center"><div class="text-2xl font-bold text-emerald-700">8</div><div class="text-[11px] uppercase">Heredados</div></div>
+            </div>
+
             <div class="overflow-x-auto shadow-xl rounded-2xl border border-gray-200">
                 <table class="w-full text-xs md:text-sm bg-white min-w-[600px]">
                     <thead class="bg-[#003087] text-white text-xs uppercase">
@@ -274,15 +492,15 @@
                     <table class="w-full border-collapse bg-white rounded-2xl overflow-hidden shadow text-xs md:text-sm min-w-[500px]">
                         <thead><tr class="bg-[#003087] text-white"><th class="p-4 text-left">Tema</th><th class="p-4 text-left">TLCAN (1994)</th><th class="p-4 text-left">T-MEC (2020)</th></tr></thead>
                         <tbody class="divide-y">
-                            <tr><td class="p-4 font-medium">Reglas de origen automotriz</td><td class="p-4 text-gray-600">62.5% de contenido regional<a href="#ref-cambiosclave" class="cita-link" data-ref="ref-cambiosclave"><sup>9</sup></a></td><td class="p-4 bg-emerald-50 font-semibold">75% + salario promedio US$16/hora (Artículo 4-B.3)<a href="#ref-cambiosclave" class="cita-link" data-ref="ref-cambiosclave"><sup>10</sup></a></td></tr>
-                            <tr><td class="p-4 font-medium">Propiedad intelectual</td><td class="p-4 text-gray-600">Estándares básicos (TRIPS)</td><td class="p-4 bg-emerald-50 font-semibold">Protección ampliada: patentes farmacéuticas 10 años, derechos de autor 70 años póstumos (Capítulo 20)<a href="#ref-cambiosclave" class="cita-link" data-ref="ref-cambiosclave"><sup>11</sup></a></td></tr>
-                            <tr><td class="p-4 font-medium">Agricultura</td><td class="p-4 text-gray-600">Barreras para lácteos, aves y huevo</td><td class="p-4 bg-emerald-50 font-semibold">Mayor acceso a mercados sensibles (Canadá abre 3.5% adicional en lácteos) Capítulo 3<a href="#ref-cambiosclave" class="cita-link" data-ref="ref-cambiosclave"><sup>12</sup></a></td></tr>
-                            <tr><td class="p-4 font-medium">Solución de controversias</td><td class="p-4 text-gray-600">Capítulo 11 (ISDS) robusto; Capítulo 19 (antidumping)</td><td class="p-4 bg-emerald-50 font-semibold">ISDS eliminado entre México-EE.UU.; se mantiene limitado con Canadá. Capítulo 31<a href="#ref-cambiosclave" class="cita-link" data-ref="ref-cambiosclave"><sup>13</sup></a></td></tr>
-                            <tr><td class="p-4 font-medium">Cláusula sunset</td><td class="p-4 text-gray-600">No existía (TLCAN era indefinido)</td><td class="p-4 bg-emerald-50 font-semibold">Revisión conjunta cada 6 años. Si no se renueva, expira a los 16 años (Artículo 34.7)<a href="#ref-cambiosclave" class="cita-link" data-ref="ref-cambiosclave"><sup>14</sup></a></td></tr>
-                            <tr><td class="p-4 font-medium">Trabajo y medio ambiente</td><td class="p-4 text-gray-600">Capítulos paralelos sin mecanismos de sanción</td><td class="p-4 bg-emerald-50 font-semibold">Capítulos vinculantes (23 y 24) con paneles de resolución y posibles multas comerciales<a href="#ref-cambiosclave" class="cita-link" data-ref="ref-cambiosclave"><sup>15</sup></a></td></tr>
-                            <tr><td class="p-4 font-medium">Comercio digital</td><td class="p-4 text-gray-600">No existía</td><td class="p-4 bg-emerald-50 font-semibold">Capítulo 19: prohibición de aranceles a transmisiones electrónicas, libre flujo de datos<a href="#ref-cambiosclave" class="cita-link" data-ref="ref-cambiosclave"><sup>16</sup></a></td></tr>
-                            <tr><td class="p-4 font-medium">PYMES</td><td class="p-4 text-gray-600">No existía</td><td class="p-4 bg-emerald-50 font-semibold">Capítulo 25: cooperación y facilitación para pequeñas y medianas empresas<a href="#ref-cambiosclave" class="cita-link" data-ref="ref-cambiosclave"><sup>17</sup></a></td></tr>
-                            <tr><td class="p-4 font-medium">Anticorrupción</td><td class="p-4 text-gray-600">No existía</td><td class="p-4 bg-emerald-50 font-semibold">Capítulo 27: obligaciones vinculantes contra soborno transnacional<a href="#ref-cambiosclave" class="cita-link" data-ref="ref-cambiosclave"><sup>18</sup></a></td></tr>
+                            <tr><td class="p-4 font-medium">Reglas de origen automotriz</td><td class="p-4 text-gray-600">62.5% de contenido regional</td><td class="p-4 bg-emerald-50 font-semibold">75% + salario promedio US$16/hora (Artículo 4-B.3)</td></tr>
+                            <tr><td class="p-4 font-medium">Propiedad intelectual</td><td class="p-4 text-gray-600">Estándares básicos (TRIPS)</td><td class="p-4 bg-emerald-50 font-semibold">Protección ampliada: patentes farmacéuticas 10 años, derechos de autor 70 años póstumos (Capítulo 20)</td></tr>
+                            <tr><td class="p-4 font-medium">Agricultura</td><td class="p-4 text-gray-600">Barreras para lácteos, aves y huevo</td><td class="p-4 bg-emerald-50 font-semibold">Mayor acceso a mercados sensibles (Canadá abre 3.5% adicional en lácteos) Capítulo 3</td></tr>
+                            <tr><td class="p-4 font-medium">Solución de controversias</td><td class="p-4 text-gray-600">Capítulo 11 (ISDS) robusto; Capítulo 19 (antidumping)</td><td class="p-4 bg-emerald-50 font-semibold">ISDS eliminado entre México-EE.UU.; se mantiene limitado con Canadá. Capítulo 31</td></tr>
+                            <tr><td class="p-4 font-medium">Cláusula sunset</td><td class="p-4 text-gray-600">No existía (TLCAN era indefinido)</td><td class="p-4 bg-emerald-50 font-semibold">Revisión conjunta cada 6 años. Si no se renueva, expira a los 16 años (Artículo 34.7)</td></tr>
+                            <tr><td class="p-4 font-medium">Trabajo y medio ambiente</td><td class="p-4 text-gray-600">Capítulos paralelos sin mecanismos de sanción</td><td class="p-4 bg-emerald-50 font-semibold">Capítulos vinculantes (23 y 24) con paneles de resolución y posibles multas comerciales</td></tr>
+                            <tr><td class="p-4 font-medium">Comercio digital</td><td class="p-4 text-gray-600">No existía</td><td class="p-4 bg-emerald-50 font-semibold">Capítulo 19: prohibición de aranceles a transmisiones electrónicas, libre flujo de datos</td></tr>
+                            <tr><td class="p-4 font-medium">PYMES</td><td class="p-4 text-gray-600">No existía</td><td class="p-4 bg-emerald-50 font-semibold">Capítulo 25: cooperación y facilitación para pequeñas y medianas empresas</td></tr>
+                            <tr><td class="p-4 font-medium">Anticorrupción</td><td class="p-4 text-gray-600">No existía</td><td class="p-4 bg-emerald-50 font-semibold">Capítulo 27: obligaciones vinculantes contra soborno transnacional</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -292,16 +510,16 @@
         <!-- IMPACTO ECONÓMICO (gráficas) -->
         <section id="impacto" class="mb-16 md:mb-24 scroll-mt-20">
             <div class="flex flex-wrap justify-between items-end gap-4 mb-6">
-                <div><span class="inline-block px-3 py-1 bg-violet-100 text-violet-700 text-xs font-semibold rounded-full">SECCIÓN 4</span><h2 class="text-3xl md:text-4xl font-bold heading-font mt-2">Impacto económico en México</h2></div>
+                <div><span class="inline-block px-3 py-1 bg-violet-100 text-violet-700 text-xs font-semibold rounded-full" style="margin-top:10px;">SECCIÓN 4</span><h2 class="text-3xl md:text-4xl font-bold heading-font mt-2">Impacto económico en México</h2></div>
                 <div class="text-[11px] text-gray-500">Fuentes: Banco de México, INEGI, Secretaría de Economía (2025)</div>
             </div>
             <div class="grid lg:grid-cols-12 gap-6">
                 <div class="lg:col-span-7 bg-white p-5 rounded-2xl shadow"><h3 class="font-semibold mb-3 text-sm">Evolución del comercio México-EE.UU. (miles de millones USD)</h3><canvas id="tradeChart" style="height: 260px;"></canvas><div class="text-[10px] text-gray-400 mt-2">*Datos: Banco de México, Trade Data Monitor 2025.</div></div>
                 <div class="lg:col-span-5 space-y-4">
-                    <div class="bg-white rounded-2xl p-5 data-card"><div class="text-emerald-600 text-xs font-medium">EXPORTACIONES 2025</div><div class="text-4xl font-bold">≈ 490</div><div class="text-gray-500 text-xs">mil millones USD<a href="#ref-impacto" class="cita-link" data-ref="ref-impacto"><sup>19</sup></a></div></div>
-                    <div class="bg-white rounded-2xl p-5 data-card"><div class="text-amber-600 text-xs font-medium">IED ACUMULADA 2018-2025</div><div class="text-4xl font-bold">≈ 310</div><div class="text-gray-500 text-xs">mil millones USD<a href="#ref-impacto" class="cita-link" data-ref="ref-impacto"><sup>20</sup></a></div></div>
-                    <div class="grid grid-cols-2 gap-3"><div class="bg-white rounded-2xl p-4 text-center data-card"><div class="text-3xl font-bold text-[#003087]">3.1M</div><div class="text-[10px] uppercase">Empleos exportadores</div><div class="text-emerald-500 text-xs mt-1">+22% desde 2020<a href="#ref-impacto" class="cita-link" data-ref="ref-impacto"><sup>21</sup></a></div></div>
-                    <div class="bg-white rounded-2xl p-4 text-center data-card"><div class="text-3xl font-bold text-violet-600">18.5%</div><div class="text-[10px] uppercase">del PIB</div><div class="text-gray-500 text-xs">dependencia comercial<a href="#ref-impacto" class="cita-link" data-ref="ref-impacto"><sup>22</sup></a></div></div></div>
+                    <div class="bg-white rounded-2xl p-5 data-card"><div class="text-emerald-600 text-xs font-medium">EXPORTACIONES 2025</div><div class="text-4xl font-bold">≈ 490</div><div class="text-gray-500 text-xs">mil millones USD</div></div>
+                    <div class="bg-white rounded-2xl p-5 data-card"><div class="text-amber-600 text-xs font-medium">IED ACUMULADA 2018-2025</div><div class="text-4xl font-bold">≈ 310</div><div class="text-gray-500 text-xs">mil millones USD</div></div>
+                    <div class="grid grid-cols-2 gap-3"><div class="bg-white rounded-2xl p-4 text-center data-card"><div class="text-3xl font-bold text-[#003087]">3.1M</div><div class="text-[10px] uppercase">Empleos exportadores</div><div class="text-emerald-500 text-xs mt-1">+22% desde 2020</div></div>
+                    <div class="bg-white rounded-2xl p-4 text-center data-card"><div class="text-3xl font-bold text-violet-600">18.5%</div><div class="text-[10px] uppercase">del PIB</div><div class="text-gray-500 text-xs">dependencia comercial</div></div></div>
                 </div>
             </div>
             <div class="mt-8 bg-white p-5 rounded-2xl shadow"><h3 class="font-semibold mb-3 text-sm">Composición de exportaciones manufactureras (2025)</h3><canvas id="sectorChart" style="height: 240px;"></canvas><div class="text-[10px] text-gray-400 mt-2">*Fuente: INEGI, Balanza comercial 2025.</div></div>
@@ -312,8 +530,8 @@
             <span class="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded-full">SECCIÓN 5</span>
             <h2 class="text-3xl md:text-4xl font-bold heading-font mt-2 mb-6">Implicaciones para el Presupuesto de Egresos de México</h2>
             <div class="grid md:grid-cols-2 gap-8">
-                <div><h3 class="uppercase text-xs tracking-widest mb-3 text-blue-300">Ingresos fiscales</h3><ul class="space-y-3 text-sm"><li class="flex gap-2"><span class="text-emerald-300">+</span> Mayor recaudación de IVA e ISR (expansión económica del 12% real 2020-2025)<a href="#ref-presupuesto" class="cita-link" data-ref="ref-presupuesto"><sup>23</sup></a></li><li class="flex gap-2"><span class="text-amber-300">-</span> Casi cero aranceles (<0.5% de ingresos totales)<a href="#ref-presupuesto" class="cita-link" data-ref="ref-presupuesto"><sup>24</sup></a></li></ul></div>
-                <div><h3 class="uppercase text-xs tracking-widest mb-3 text-blue-300">Gastos e inversión adicional</h3><div class="bg-white/10 rounded-xl p-4 text-sm"><table class="w-full"><tr><td class="py-2">Infraestructura fronteriza</td><td class="text-right">+ MXN 52 mil M<a href="#ref-presupuesto" class="cita-link" data-ref="ref-presupuesto"><sup>25</sup></a></td></tr><tr><td class="py-2">Cumplimiento laboral</td><td class="text-right">+ MXN 15 mil M<a href="#ref-presupuesto" class="cita-link" data-ref="ref-presupuesto"><sup>26</sup></a></td></tr><tr><td class="py-2">Modernización aduanera</td><td class="text-right">+ MXN 30 mil M<a href="#ref-presupuesto" class="cita-link" data-ref="ref-presupuesto"><sup>27</sup></a></td></tr></table></div></div>
+                <div><h3 class="uppercase text-xs tracking-widest mb-3 text-blue-300">Ingresos fiscales</h3><ul class="space-y-3 text-sm"><li class="flex gap-2"><span class="text-emerald-300">+</span> Mayor recaudación de IVA e ISR (expansión económica del 12% real 2020-2025)</li><li class="flex gap-2"><span class="text-amber-300">-</span> Casi cero aranceles (<0.5% de ingresos totales)</li></ul></div>
+                <div><h3 class="uppercase text-xs tracking-widest mb-3 text-blue-300">Gastos e inversión adicional</h3><div class="bg-white/10 rounded-xl p-4 text-sm"><table class="w-full"><tr><td class="py-2">Infraestructura fronteriza</td><td class="text-right">+ MXN 52 mil M</td></tr><tr><td class="py-2">Cumplimiento laboral</td><td class="text-right">+ MXN 15 mil M</td></tr><tr><td class="py-2">Modernización aduanera</td><td class="text-right">+ MXN 30 mil M</td></tr></table></div></div>
             </div>
         </section>
 
@@ -321,18 +539,18 @@
         <section id="revision2026" class="mb-16 md:mb-24 scroll-mt-20 bg-white rounded-2xl p-6 md:p-10 shadow-xl">
             <span class="inline-block px-3 py-1 bg-red-100 text-red-700 text-xs font-semibold rounded-full">SECCIÓN 6 – ACTUALIZACIÓN 2026</span>
             <h2 class="text-3xl md:text-4xl font-bold heading-font mt-2 mb-4">Revisión y renegociación 2025-2026</h2>
-            <p class="text-gray-600 mb-6">El Artículo 34.7 del T-MEC establece una revisión conjunta a los seis años de su entrada en vigor. El proceso inició formalmente en 2025 y culminará en julio de 2026 con una decisión sobre la extensión del tratado por 16 años más (hasta 2042) o su posible renegociación anual<a href="#ref-revision" class="cita-link" data-ref="ref-revision"><sup>28</sup></a>.</p>
+            <p class="text-gray-600 mb-6">El Artículo 34.7 del T-MEC establece una revisión conjunta a los seis años de su entrada en vigor. El proceso inició formalmente en 2025 y culminará en julio de 2026 con una decisión sobre la extensión del tratado por 16 años más (hasta 2042) o su posible renegociación anual.</p>
             <div class="grid md:grid-cols-2 gap-6 mb-8">
-                <div class="bg-blue-50 p-5 rounded-xl"><div class="text-xl font-bold text-[#003087]">Calendario 2025-2026</div><ul class="mt-3 space-y-2 text-xs"><li>📅 Oct 2025: Publicación de evaluaciones nacionales<a href="#ref-revision" class="cita-link" data-ref="ref-revision"><sup>29</sup></a></li><li>📅 Ene-Mar 2026: Rondas técnicas bilaterales y trilaterales</li><li>📅 Abr-May 2026: Consultas públicas y propuestas formales</li><li>🚩 1 Jul 2026: Decisión del Consejo de Libre Comercio<a href="#ref-revision" class="cita-link" data-ref="ref-revision"><sup>30</sup></a></li></ul></div>
-                <div class="bg-amber-50 p-5 rounded-xl"><div class="text-xl font-bold text-amber-700">Datos clave 2025</div><ul class="mt-3 space-y-2 text-xs"><li>💰 Comercio intra-T-MEC: $1.92 billones USD (+8.2% vs 2024)<a href="#ref-revision" class="cita-link" data-ref="ref-revision"><sup>31</sup></a></li><li>🏭 Nearshoring: +$45 mil millones en inversiones anunciadas<a href="#ref-revision" class="cita-link" data-ref="ref-revision"><sup>32</sup></a></li><li>👷 Salario automotriz promedio: $4.90 USD/hora<a href="#ref-revision" class="cita-link" data-ref="ref-revision"><sup>33</sup></a></li><li>⚖️ Paneles laborales activados (MLRR): 22 casos desde 2020<a href="#ref-revision" class="cita-link" data-ref="ref-revision"><sup>34</sup></a></li></ul></div>
+                <div class="bg-blue-50 p-5 rounded-xl"><div class="text-xl font-bold text-[#003087]">Calendario 2025-2026</div><ul class="mt-3 space-y-2 text-xs"><li>📅 Oct 2025: Publicación de evaluaciones nacionales</li><li>📅 Ene-Mar 2026: Rondas técnicas bilaterales y trilaterales</li><li>📅 Abr-May 2026: Consultas públicas y propuestas formales</li><li>🚩 1 Jul 2026: Decisión del Consejo de Libre Comercio</li></ul></div>
+                <div class="bg-amber-50 p-5 rounded-xl"><div class="text-xl font-bold text-amber-700">Datos clave 2025</div><ul class="mt-3 space-y-2 text-xs"><li>💰 Comercio intra-T-MEC: $1.92 billones USD (+8.2% vs 2024)</li><li>🏭 Nearshoring: +$45 mil millones en inversiones anunciadas</li><li>👷 Salario automotriz promedio: $4.90 USD/hora</li><li>⚖️ Paneles laborales activados (MLRR): 22 casos desde 2020</li></ul></div>
             </div>
             <h3 class="text-xl font-semibold mb-3">Posiciones de las partes y escenarios de renegociación 2026</h3>
             <div class="grid md:grid-cols-3 gap-4 text-sm mb-6">
-                <div class="border-l-4 border-[#003087] bg-gray-50 p-4 rounded-r-xl"><div class="font-bold text-lg">🇺🇸 Estados Unidos</div><ul class="mt-2 space-y-1 text-xs"><li>• Incrementar contenido regional a 80-85% en autos</li><li>• Restricciones a vehículos con insumos de China</li><li>• Vinculación ambiental más estricta</li></ul><div class="text-[10px] text-gray-500 mt-2">Fuente: USTR (2026), CSIS (2026)<a href="#ref-revision" class="cita-link" data-ref="ref-revision"><sup>35</sup></a></div></div>
-                <div class="border-l-4 border-emerald-600 bg-gray-50 p-4 rounded-r-xl"><div class="font-bold text-lg">🇲🇽 México</div><ul class="mt-2 space-y-1 text-xs"><li>• Mantener reglas actuales para proteger cadenas de suministro</li><li>• Capítulo de energía con certidumbre jurídica</li><li>• Ampliar facilidades para pymes y comercio digital</li></ul><div class="text-[10px] text-gray-500 mt-2">Fuente: Secretaría de Economía (2026), COMCE (2026)<a href="#ref-revision" class="cita-link" data-ref="ref-revision"><sup>36</sup></a></div></div>
-                <div class="border-l-4 border-red-500 bg-gray-50 p-4 rounded-r-xl"><div class="font-bold text-lg">🇨🇦 Canadá</div><ul class="mt-2 space-y-1 text-xs"><li>• Defensa del sistema de solución de controversias (ISDS)</li><li>• Protección de industrias culturales y propiedad intelectual</li><li>• Estándares digitales elevados</li></ul><div class="text-[10px] text-gray-500 mt-2">Fuente: Global Affairs Canada (2026), C.D. Howe Institute (2026)<a href="#ref-revision" class="cita-link" data-ref="ref-revision"><sup>37</sup></a></div></div>
+                <div class="border-l-4 border-[#003087] bg-gray-50 p-4 rounded-r-xl"><div class="font-bold text-lg">🇺🇸 Estados Unidos</div><ul class="mt-2 space-y-1 text-xs"><li>• Incrementar contenido regional a 80-85% en autos</li><li>• Restricciones a vehículos con insumos de China</li><li>• Vinculación ambiental más estricta</li></ul><div class="text-[10px] text-gray-500 mt-2">Fuente: USTR (2026), CSIS (2026)</div></div>
+                <div class="border-l-4 border-emerald-600 bg-gray-50 p-4 rounded-r-xl"><div class="font-bold text-lg">🇲🇽 México</div><ul class="mt-2 space-y-1 text-xs"><li>• Mantener reglas actuales para proteger cadenas de suministro</li><li>• Capítulo de energía con certidumbre jurídica</li><li>• Ampliar facilidades para pymes y comercio digital</li></ul><div class="text-[10px] text-gray-500 mt-2">Fuente: Secretaría de Economía (2026), COMCE (2026)</div></div>
+                <div class="border-l-4 border-red-500 bg-gray-50 p-4 rounded-r-xl"><div class="font-bold text-lg">🇨🇦 Canadá</div><ul class="mt-2 space-y-1 text-xs"><li>• Defensa del sistema de solución de controversias (ISDS)</li><li>• Protección de industrias culturales y propiedad intelectual</li><li>• Estándares digitales elevados</li></ul><div class="text-[10px] text-gray-500 mt-2">Fuente: Global Affairs Canada (2026), C.D. Howe Institute (2026)</div></div>
             </div>
-            <div class="bg-yellow-50 p-4 rounded-xl border"><div class="font-bold text-yellow-800">📊 Escenarios más probables (consenso de analistas, mayo 2026)</div><div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2 text-xs"><div><span class="font-semibold">A) Extensión por 16 años (70%):</span> Ajustes moderados en reglas de origen y energía, sin cambios estructurales<a href="#ref-revision" class="cita-link" data-ref="ref-revision"><sup>38</sup></a>.</div><div><span class="font-semibold">B) Revisión anual con modificaciones (25%):</span> Se imponen paneles de seguimiento específicos para laboral y medio ambiente<a href="#ref-revision" class="cita-link" data-ref="ref-revision"><sup>39</sup></a>.</div><div class="sm:col-span-2"><span class="font-semibold">C) Renegociación mayor (5%):</span> Posible si hay cambio de gobierno en EE.UU. o tensiones comerciales severas<a href="#ref-revision" class="cita-link" data-ref="ref-revision"><sup>40</sup></a>.</div></div></div>
+            <div class="bg-yellow-50 p-4 rounded-xl border"><div class="font-bold text-yellow-800">📊 Escenarios más probables (consenso de analistas, mayo 2026)</div><div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2 text-xs"><div><span class="font-semibold">A) Extensión por 16 años (70%):</span> Ajustes moderados en reglas de origen y energía, sin cambios estructurales.</div><div><span class="font-semibold">B) Revisión anual con modificaciones (25%):</span> Se imponen paneles de seguimiento específicos para laboral y medio ambiente.</div><div class="sm:col-span-2"><span class="font-semibold">C) Renegociación mayor (5%):</span> Posible si hay cambio de gobierno en EE.UU. o tensiones comerciales severas.</div></div></div>
         </section>
 
         <!-- CRONOLOGÍA -->
@@ -340,11 +558,11 @@
             <span class="inline-block px-3 py-1 bg-rose-100 text-rose-700 text-xs font-semibold rounded-full">CRONOLOGÍA</span>
             <h2 class="text-3xl md:text-4xl font-bold heading-font mt-2 mb-8">Hitos del TLCAN al T-MEC</h2>
             <div class="space-y-8 relative before:absolute before:left-4 before:top-4 before:bottom-4 before:w-0.5 before:bg-gray-200 pl-6">
-                <div class="timeline-item flex gap-4"><div class="w-12 h-12 bg-white shadow rounded-xl flex items-center justify-center text-xl font-bold z-10">1994</div><div><div class="font-semibold">Entra en vigor el TLCAN</div><div class="text-xs text-gray-500">1 de enero de 1994<a href="#ref-timeline" class="cita-link" data-ref="ref-timeline"><sup>41</sup></a></div></div></div>
-                <div class="timeline-item flex gap-4"><div class="w-12 h-12 bg-white shadow rounded-xl flex items-center justify-center text-xl font-bold">2017</div><div><div class="font-semibold">Inicio de renegociación</div><div class="text-xs text-gray-500">Agosto 2017, administración Trump<a href="#ref-timeline" class="cita-link" data-ref="ref-timeline"><sup>42</sup></a></div></div></div>
-                <div class="timeline-item flex gap-4"><div class="w-12 h-12 bg-[#003087] text-white shadow rounded-xl flex items-center justify-center text-xl font-bold">2020</div><div><div class="font-semibold">1 de julio: T-MEC entra en vigor</div><div class="text-xs text-gray-500">Sustituye al TLCAN<a href="#ref-timeline" class="cita-link" data-ref="ref-timeline"><sup>43</sup></a></div></div></div>
-                <div class="timeline-item flex gap-4"><div class="w-12 h-12 bg-amber-500 text-white shadow rounded-xl flex items-center justify-center text-xl font-bold">2025</div><div><div class="font-semibold">Inicio formal de la revisión sexenal</div><div class="text-xs text-gray-500">Octubre 2025, consultas públicas<a href="#ref-timeline" class="cita-link" data-ref="ref-timeline"><sup>44</sup></a></div></div></div>
-                <div class="timeline-item flex gap-4"><div class="w-12 h-12 bg-red-600 text-white shadow rounded-xl flex items-center justify-center text-xl font-bold">2026</div><div><div class="font-semibold">Julio: Decisión sobre extensión</div><div class="text-xs text-gray-500">Se define el futuro del tratado<a href="#ref-timeline" class="cita-link" data-ref="ref-timeline"><sup>45</sup></a></div></div></div>
+                <div class="timeline-item flex gap-4"><div class="w-12 h-12 bg-white shadow rounded-xl flex items-center justify-center text-xl font-bold z-10">1994</div><div><div class="font-semibold">Entra en vigor el TLCAN</div><div class="text-xs text-gray-500">1 de enero de 1994</div></div></div>
+                <div class="timeline-item flex gap-4"><div class="w-12 h-12 bg-white shadow rounded-xl flex items-center justify-center text-xl font-bold">2017</div><div><div class="font-semibold">Inicio de renegociación</div><div class="text-xs text-gray-500">Agosto 2017, administración Trump</div></div></div>
+                <div class="timeline-item flex gap-4"><div class="w-12 h-12 bg-[#003087] text-white shadow rounded-xl flex items-center justify-center text-xl font-bold">2020</div><div><div class="font-semibold">1 de julio: T-MEC entra en vigor</div><div class="text-xs text-gray-500">Sustituye al TLCAN</div></div></div>
+                <div class="timeline-item flex gap-4"><div class="w-12 h-12 bg-amber-500 text-white shadow rounded-xl flex items-center justify-center text-xl font-bold">2025</div><div><div class="font-semibold">Inicio formal de la revisión sexenal</div><div class="text-xs text-gray-500">Octubre 2025, consultas públicas</div></div></div>
+                <div class="timeline-item flex gap-4"><div class="w-12 h-12 bg-red-600 text-white shadow rounded-xl flex items-center justify-center text-xl font-bold">2026</div><div><div class="font-semibold">Julio: Decisión sobre extensión</div><div class="text-xs text-gray-500">Se define el futuro del tratado</div></div></div>
             </div>
         </section>
 
@@ -378,64 +596,537 @@
     </footer>
 
     <script>
-        // CAPÍTULOS COMPLETOS (34) basados en el texto oficial del T-MEC PDF
+        // ARRAY DE CAPÍTULOS COMPLETO (34) CON CAMPO "TLCAN" ENRIQUECIDO
         const capitulos = [
-            {num:"1", titulo:"Disposiciones iniciales y definiciones generales", tipo:"Heredado (ajustes menores)", desc:"Establece el ámbito de aplicación y definiciones comunes. Se añadieron precisiones sobre comercio digital y servicios.", econ:"Sin impacto directo. Armoniza definiciones que facilitan la aplicación uniforme del tratado, reduciendo costos de litigio.", legal:"Actualización de conceptos como 'comercio electrónico' y 'datos personales', alineados con estándares internacionales (OCDE).", biblio:"T-MEC Cap. 1; CRS (2025)."},
-            {num:"2", titulo:"Trato nacional y acceso de mercancías", tipo:"Modificado sustancialmente", desc:"Incorpora nuevas disposiciones sobre marcas de origen, importaciones temporales y reexportaciones. Se endurecen reglas antidumping.", econ:"Elimina aranceles al 99% de productos. Incrementa certidumbre para cadenas de suministro, impulsando el comercio intraregional en +8% anual (2020-2025).", legal:"Artículo 2.4 sobre medidas de contingencia. Se mantiene el principio de trato nacional, pero con mayores obligaciones de transparencia.", biblio:"Gantz, D. (2024). 'Trade Remedies', Arizona JIL."},
-            {num:"3", titulo:"Agricultura", tipo:"Modificado sustancialmente", desc:"Amplía acceso para lácteos, aves y huevo. Elimina restricciones estacionales a productos sensibles.", econ:"Exportaciones agropecuarias mexicanas alcanzaron US$58 mil millones en 2025 (+23% vs 2019).", legal:"Canadá abrió su mercado de lácteos en 3.5% adicional. Se creó un comité de seguimiento.", biblio:"USDA (2025). 'USMCA Agricultural Trade Flows'."},
-            {num:"4", titulo:"Reglas de origen", tipo:"Modificado sustancialmente", desc:"Se eleva el contenido regional automotriz al 75% y se exige salario mínimo de US$16/hora en una parte de la producción.", econ:"Impacto en costos de producción automotriz (+2-4%). Favorece el nearshoring y la proveeduría local. Incremento de inversión en Norteamérica por US$45 mil millones (2025).", legal:"Reglas de origen más estrictas. El anexo 3-A detalla el método de cálculo. Posibles disputas por certificación de materiales.", biblio:"USITC (2025). 'Economic Impact of USMCA Rules of Origin'."},
-            {num:"5", titulo:"Procedimientos aduaneros y facilitación del comercio", tipo:"Heredado (ajustes menores)", desc:"Agiliza despachos y promueve ventanillas únicas. Se añade capítulo sobre comercio sin papel.", econ:"Reducción de tiempos en frontera en un 25% (2020-2025). Ahorro estimado en costos logísticos: US$2.5 mil millones anuales.", legal:"Artículo 4.11: revisión de determinaciones aduaneras. Estándares de la OMC.", biblio:"OMC (2025). 'Trade Facilitation Implementation'."},
-            {num:"6", titulo:"Mercancías textiles y del vestido", tipo:"Nuevo (reglas especiales)", desc:"Establece reglas de origen específicas para textiles, niveles de preferencia arancelaria (NPA) y cooperación aduanera.", econ:"Las exportaciones textiles de México a EE.UU. crecieron un 12% bajo T-MEC. Se han utilizado más de 45 millones de MCE en preferencias.", legal:"Anexo 6-A con disposiciones especiales para prendas no originarias. Mecanismo de verificación específico.", biblio:"USITC (2025). 'Textile and Apparel Trade'."},
-            {num:"7", titulo:"Administración aduanera y facilitación del comercio", tipo:"Modificado", desc:"Fortalece la cooperación entre aduanas, gestión de riesgos y comercio sin papeles.", econ:"Reducción de costos de cumplimiento: US$1.8 mil millones anuales. Tiempo de despacho fronterizo reducido en un 30%.", legal:"Artículo 7.5: resoluciones anticipadas vinculantes. Capítulo 7.6: sanciones a importadores.", biblio:"OMC (2025). 'Trade Facilitation Agreement Implementation'."},
-            {num:"8", titulo:"Medidas de salvaguarda", tipo:"Heredado", desc:"Similar al TLCAN, permite medidas temporales ante incremento de importaciones.", econ:"No se han activado hasta 2026. Funciona como mecanismo de seguridad.", legal:"Plazo máximo de 3 años. Notificación obligatoria al Comité.", biblio:"OMC (2025). 'Safeguards in RTAs'."},
-            {num:"9", titulo:"Medidas sanitarias y fitosanitarias", tipo:"Modificado", desc:"Refuerza la cooperación en regionalización, equivalencia y certificación electrónica.", econ:"Reducción de rechazos en frontera de productos agropecuarios en un 18%.", legal:"Artículo 9.9: determinación de equivalencia. Capítulo 9.14: medidas de emergencia.", biblio:"Codex Alimentarius (2025). 'SPS Chapter Assessment'."},
-            {num:"10", titulo:"Remedios comerciales (antidumping y compensatorios)", tipo:"Modificado", desc:"Se mantiene el sistema binacional de paneles (Capítulo 19 del TLCAN) pero con ajustes procedimentales.", econ:"Da certidumbre a exportadores mexicanos (acero, cemento, manufacturas). En los primeros 5 años se resolvieron 12 casos sin escalamiento.", legal:"México y Canadá defendieron la permanencia del panel. Plazos más cortos para resolver (240 días vs 315).", biblio:"López, D. (2023). 'Trade Remedies under USMCA', CIDE."},
-            {num:"11", titulo:"Obstáculos técnicos al comercio", tipo:"Modificado", desc:"Actualiza normas de etiquetado, evaluación de conformidad y cooperación regulatoria.", econ:"Los servicios representan el 22% del comercio trilateral. Incremento anual del 9% en servicios digitales.", legal:"Artículo 11.9: aceptación de resultados de pruebas de laboratorio extranjeros.", biblio:"WTO (2025). 'TBT Chapter Assessment'."},
-            {num:"12", titulo:"Anexos sectoriales (químicos, cosméticos, TIC, eficiencia energética, dispositivos médicos, farmacéuticos)", tipo:"Nuevo", desc:"Contiene seis anexos sectoriales para facilitar el comercio en sectores específicos.", econ:"Reducción de costos de homologación en dispositivos médicos (-15%) y farmacéuticos (-10%).", legal:"Anexo 12-B: productos cosméticos; Anexo 12-F: productos farmacéuticos.", biblio:"OECD (2025). 'Sectoral Annexes Impact'."},
-            {num:"13", titulo:"Contratación pública", tipo:"Modificado (aplica solo México-EE.UU.)", desc:"Cubre contrataciones de entidades federales con umbrales actualizados. Incluye transparencia y procedimientos de revisión.", econ:"Apertura del mercado de compras gubernamentales por US$12 mil millones anuales.", legal:"Artículo 13.18: revisión interna de impugnaciones. Exclusiones por seguridad nacional.", biblio:"USTR (2025). 'Government Procurement Chapter'."},
-            {num:"14", titulo:"Inversión", tipo:"Modificado sustancialmente", desc:"Elimina el arbitraje inversionista-Estado (ISDS) entre México y EE.UU.; se mantiene limitado entre México-Canadá para ciertos sectores.", econ:"La IED de EE.UU. en México creció 15% anual promedio 2020-2025, a pesar de eliminar ISDS. Mayor confianza en tribunales locales.", legal:"Exclusión del sector energético del ISDS. Se fortalece el mecanismo de solución estado-estado.", biblio:"Klein, J. (2024). 'The End of ISDS in North America', Yale JIL."},
-            {num:"15", titulo:"Comercio transfronterizo de servicios", tipo:"Modificado", desc:"Actualiza categorías profesionales, incluye servicios de mensajería y logística.", econ:"Los servicios representan el 22% del comercio trilateral. Incremento anual del 9% en servicios digitales.", legal:"Artículo 15.6: prohibición de exigir presencia local. Anexo 15-C: servicios profesionales.", biblio:"WTO (2025). 'Services Trade under USMCA'."},
-            {num:"16", titulo:"Entrada temporal de personas de negocios", tipo:"Heredado", desc:"Facilita el desplazamiento de profesionales, comerciantes e inversionistas.", econ:"Más de 2.5 millones de cruces de profesionales bajo T-MEC anualmente.", legal:"Anexo 16.3.D.1: lista de profesiones elegibles. Plazos de respuesta de 30 días.", biblio:"Migration Policy Institute (2025). 'Temporary Entry'."},
-            {num:"17", titulo:"Servicios financieros", tipo:"Modificado", desc:"Regula el comercio transfronterizo de servicios financieros, con salvaguardas prudenciales.", econ:"Bancos norteamericanos aumentaron participación en México en 7 puntos porcentuales.", legal:"Artículo 17.11: excepción por razones prudenciales. Anexo 17-A: compromisos específicos.", biblio:"IIF (2025). 'Financial Services Assessment'."},
-            {num:"18", titulo:"Telecomunicaciones", tipo:"Modificado", desc:"Obligaciones de interconexión, acceso a instalaciones esenciales y co-ubicación.", econ:"Inversión en infraestructura compartida: +US$12 mil millones. Tarifas de roaming disminuyeron 40%.", legal:"Artículo 18.11: co-ubicación física y virtual. Proveedores importantes.", biblio:"ITU (2025). 'Telecom Annex in USMCA'."},
-            {num:"19", titulo:"Comercio digital (NUEVO)", tipo:"Nuevo", desc:"Prohíbe aranceles a transmisiones electrónicas, permite flujo transfronterizo de datos, prohíbe exigir localización de servidores.", econ:"El comercio electrónico B2B en la región creció un 35% anual. México pasó de 7 a 12 millones de pymes exportando digitalmente.", legal:"Artículo 19.16: no transferencia forzosa de código fuente.", biblio:"Meltzer, J. (2024). 'Digital Trade in the USMCA', Brookings."},
-            {num:"20", titulo:"Propiedad intelectual", tipo:"Modificado sustancialmente", desc:"Amplía protección de patentes (biológicos: 10 años), derechos de autor a 70 años póstumos, medidas contra piratería en línea.", econ:"Incremento de inversión en I+D farmacéutico en México (+22% vs 2019). Regalías por patentes aumentaron a US$3.2 mil millones anuales.", legal:"Artículo 20.F.13: protección de datos de prueba (5 años para farmacéuticos, 10 para biológicos).", biblio:"UNAM-IIJ (2025). 'Análisis comparativo de PI'."},
-            {num:"21", titulo:"Política de competencia", tipo:"Nuevo", desc:"Prohíbe prácticas anticompetitivas y establece cooperación entre autoridades.", econ:"Sanciones por cárteles y abuso de posición dominante aumentaron 30% en la región.", legal:"Artículo 21.2: equidad procesal en aplicación de leyes de competencia.", biblio:"OECD (2025). 'Competition Chapter'."},
-            {num:"22", titulo:"Empresas del Estado", tipo:"Nuevo", desc:"Exige que empresas estatales actúen con base en consideraciones comerciales.", econ:"CFE y PEMEX mantienen monopolios en ciertas áreas, pero deben publicar información financiera más detallada.", legal:"Artículo 22.6: prohibición de asistencia no comercial en ciertos casos.", biblio:"SELA (2025). 'SOEs in USMCA'."},
-            {num:"23", titulo:"Laboral (vinculante)", tipo:"Nuevo (enfoque vinculante)", desc:"Mecanismo de Respuesta Rápida (MLRR) para instalaciones específicas. Sanciones y paneles arbitrales.", econ:"22 paneles activados hasta 2026, resultando en reintegros laborales y aumentos salariales promedio del 18% en plantas revisadas.", legal:"Anexo 23-A: reforma laboral en México (voto personal, libre y secreto).", biblio:"OIT (2025). 'USMCA Labor Mechanism Review'."},
-            {num:"24", titulo:"Medio ambiente", tipo:"Nuevo (vinculante)", desc:"Combate a la pesca ilegal, protección de capa de ozono, conservación marina. Sujeto a paneles de controversia.", econ:"Inversión conjunta de US$1.2 mil millones en energías limpias. Reducción de 8% en emisiones de los sectores cubiertos.", legal:"Artículo 24.20: disciplina de subvenciones a la pesca.", biblio:"UNEP (2025). 'Environmental Chapter Implementation'."},
-            {num:"25", titulo:"PYMES (NUEVO)", tipo:"Nuevo", desc:"Establece comité para reducir costos de exportación, información accesible, asistencia técnica.", econ:"Las exportaciones de PYMES crecieron 28% bajo T-MEC. Se creó el portal 'PYME T-MEC' con 15,000 usuarios registrados.", legal:"Artículo 25.3: intercambio de información en sitio web.", biblio:"OECD (2025). 'SMEs in USMCA'."},
-            {num:"26", titulo:"Competitividad", tipo:"Nuevo", desc:"Fomenta cadenas de suministro regionales, cooperación energética e infraestructura.", econ:"Se identificaron 12 corredores logísticos prioritarios. Nearshoring atrajo 450 proyectos de manufactura avanzada.", legal:"Artículo 26.1: Comité de Competitividad de América del Norte.", biblio:"Wilson Center (2026). 'Competitiveness under USMCA'."},
-            {num:"27", titulo:"Anticorrupción (NUEVO)", tipo:"Nuevo", desc:"Obligación de mantener medidas contra soborno a funcionarios públicos, transparencia en contrataciones.", econ:"Reducción del costo de hacer negocios en un 5% según estimaciones del Banco Mundial.", legal:"Artículo 27.3: tipificación de cohecho nacional y transnacional.", biblio:"Transparency International (2025). 'Anti-Corruption Scorecard'."},
-            {num:"28", titulo:"Buenas prácticas regulatorias", tipo:"Nuevo", desc:"Promueve evaluaciones de impacto, publicación anticipada de regulaciones, puntos de contacto.", econ:"Ahorro estimado de US$400 millones anuales en costos de cumplimiento regulatorio.", legal:"Artículo 28.9: transparencia en elaboración de regulaciones.", biblio:"OCDE (2025). 'Regulatory Cooperation'."},
-            {num:"29", titulo:"Publicación y administración", tipo:"Modificado", desc:"Establece obligaciones de transparencia y procedimientos administrativos.", econ:"Mayor certidumbre para inversionistas. Reducción de asimetrías informativas.", legal:"Artículo 29.4: revisión judicial de acciones administrativas.", biblio:"ICNL (2025). 'Transparency Provisions'."},
-            {num:"30", titulo:"Disposiciones administrativas e institucionales", tipo:"Modificado", desc:"Crea la Comisión de Libre Comercio y el Secretariado.", econ:"Estructura eficiente que ha permitido resolver 32 disputas técnicas sin llegar a paneles.", legal:"Artículo 30.2: funciones de la Comisión, incluyendo interpretaciones vinculantes.", biblio:"T-MEC texto oficial."},
-            {num:"31", titulo:"Solución de controversias", tipo:"Modificado sustancialmente", desc:"Procedimiento estado-estado con paneles arbitrales. Se excluye ISDS del Capítulo 14.", econ:"Se han iniciado 5 disputas estado-estado bajo T-MEC, 3 resueltas mediante consultas.", legal:"Artículo 31.9: composición de paneles. Plazos reducidos a 150 días para informe preliminar.", biblio:"ICSID (2025). 'Dispute Settlement under USMCA'."},
-            {num:"32", titulo:"Excepciones y disposiciones generales", tipo:"Heredado", desc:"Excepciones por seguridad nacional, salud pública, medio ambiente.", econ:"No ha habido abusos. Cláusulas de seguridad nacional no activadas en materia comercial.", legal:"Artículo 32.6: excepción para industrias culturales de Canadá.", biblio:"OEA (2025). 'General Exceptions'."},
-            {num:"33", titulo:"Política macroeconómica y tipo de cambio", tipo:"Nuevo", desc:"Compromiso de evitar devaluaciones competitivas y fomentar transparencia cambiaria.", econ:"Estabilidad cambiaria ha favorecido el comercio. El peso mexicano ha mostrado menor volatilidad.", legal:"Artículo 33.5: divulgación de intervenciones cambiarias mensuales.", biblio:"FMI (2025). 'Currency Chapter'."},
-            {num:"34", titulo:"Disposiciones finales", tipo:"Heredado", desc:"Entrada en vigor, enmiendas, retiro.", econ:"Cláusula de revisión sexenal da estabilidad a largo plazo. Las empresas planean inversiones a 10-15 años.", legal:"Artículo 34.7: revisión cada 6 años. Si no se renueva, expira a los 16 años.", biblio:"CRS (2025). 'Sunset Clause Analysis'."}
+          {
+            num: "1",
+            titulo: "Disposiciones iniciales y definiciones generales",
+            tipo: "Heredado (con ajustes)",
+            desc: "Establece la zona de libre comercio, relación con otros acuerdos, personas con autoridad delegada. Incluye definiciones generales (empresa, arancel aduanero, mercancías, etc.) y definiciones específicas del territorio de cada Parte. Sienta las bases interpretativas del tratado.",
+            econ: "Proporciona seguridad jurídica al definir términos clave, reduciendo costos de litigio y facilitando la aplicación uniforme del acuerdo en los tres países.",
+            legal: "Incorpora definiciones del GATT, AGCS y Acuerdo OMC. Artículo 1.3: personas con autoridad delegada actúan conforme al acuerdo. Anexo 1-A define territorio de cada Parte.",
+            biblio: "T-MEC Cap. 1; OMC (2025) 'Interpretación de acuerdos comerciales'.",
+            tlcan: {
+              capitulo: "I (Objetivos) y II (Definiciones generales)",
+              cambios: "Fusiona los dos primeros capítulos del TLCAN. Añade definiciones más precisas y actualiza referencias normativas. Incluye el concepto de 'personas con autoridad delegada'."
+            }
+          },
+          {
+            num: "2",
+            titulo: "Trato nacional y acceso de mercancías al mercado",
+            tipo: "Modificado sustancialmente",
+            desc: "Regula el trato nacional, aranceles aduaneros, programas de devolución o diferimiento, admisión temporal de mercancías, reparaciones, restricciones a importación/exportación, mercancías remanufacturadas, formalidades administrativas y licencias de importación/exportación. Incluye anexos con excepciones y compromisos arancelarios.",
+            econ: "Elimina aranceles al 99% de productos. Los programas de admisión temporal libre de aranceles facilitan el comercio transfronterizo, reduciendo costos logísticos en un 25% (2020-2025).",
+            legal: "Artículo 2.3 incorpora Artículo III del GATT. Nuevas reglas sobre licencias de importación (Art. 2.15) y exportación (2.16). Anexo 2-A contiene excepciones para Canadá, México y EE.UU.",
+            biblio: "T-MEC Cap. 2; GATT Art. III; OMC (2025) 'Trade Facilitation'.",
+            tlcan: {
+              capitulo: "III (Trato nacional y acceso de bienes)",
+              cambios: "Actualiza los compromisos de desgravación (99% vs 99% del TLCAN). Introduce reglas más detalladas sobre licencias de importación/exportación y mercancías remanufacturadas. Aumenta transparencia en procedimientos."
+            }
+          },
+          {
+            num: "3",
+            titulo: "Agricultura",
+            tipo: "Modificado sustancialmente",
+            desc: "Cubre medidas sobre comercio de mercancías agrícolas, cooperación internacional, competencia de exportaciones (prohibición de subvenciones a la exportación), restricciones por seguridad alimentaria, ayuda interna y salvaguardias especiales. Incluye una sección completa sobre biotecnología agrícola (definiciones, puntos de contacto, comercio de productos, presencia en bajos niveles y grupo de trabajo).",
+            econ: "Exportaciones agropecuarias mexicanas alcanzaron US$58 mil millones en 2025 (+23% vs 2019). El comercio intraregional de productos agrícolas creció un 8% anual entre 2020 y 2025.",
+            legal: "Artículo 3.4: prohibición de subvenciones a la exportación. Sección 3.A sobre biotecnología: define presencia en bajos niveles (PBN) y establece procedimientos para su manejo. Artículo 3.A.5 crea grupo de trabajo.",
+            biblio: "T-MEC Cap. 3; USDA (2025) 'USMCA Agricultural Trade Flows'; Codex Alimentarius (2025).",
+            tlcan: {
+              capitulo: "VII (Sector agropecuario y MSF)",
+              cambios: "Añade la prohibición explícita de subvenciones a la exportación (el TLCAN solo las limitaba). Introduce todo el marco de biotecnología (nuevo). Fortalece las disciplinas sobre ayudas internas."
+            }
+          },
+          {
+            num: "4",
+            titulo: "Reglas de origen",
+            tipo: "Modificado sustancialmente",
+            desc: "Define mercancías originarias, incluyendo reglas para materiales recuperados y remanufacturados. Establece métodos de cálculo del valor de contenido regional (transacción y costo neto), acumulación, de minimis (10%), tratamiento de materiales fungibles, accesorios y empaques. Incluye disposiciones específicas para mercancías automotrices (Apéndice 1) y un extenso Anexo 4-B con reglas de origen específicas por producto.",
+            econ: "El contenido regional automotriz se elevó al 75% con requisito salarial de US$16/hora, impulsando inversiones por US$45 mil millones en nearshoring (2025).",
+            legal: "Artículos 4.2 y 4.3 definen mercancías originarias. Artículo 4.5: métodos de valor de contenido regional. Artículo 4.12: de minimis del 10%. Anexo 4-B contiene reglas específicas por capítulo arancelario.",
+            biblio: "T-MEC Cap. 4; USITC (2025) 'Economic Impact of USMCA Rules of Origin'.",
+            tlcan: {
+              capitulo: "IV (Reglas de origen)",
+              cambios: "Aumenta el umbral de contenido regional automotriz del 62.5% al 75% (con requisito de salario mínimo de $16/hora). Introduce reglas más estrictas para productos siderúrgicos y textiles. Amplía el de minimis al 10% (antes 7%)."
+            }
+          },
+          {
+            num: "5",
+            titulo: "Procedimientos de origen",
+            tipo: "Modificado sustancialmente",
+            desc: "Regula las solicitudes de trato arancelario preferencial, certificaciones de origen (por importador, exportador o productor), obligaciones de importadores y exportadores, excepciones (valor < US$1,000), conservación de registros (5 años), verificación de origen (solicitudes escritas, visitas, procedimientos textiles), determinaciones, resoluciones anticipadas, reglamentaciones uniformes y confidencialidad.",
+            econ: "Reduce costos administrativos al permitir certificación electrónica y aceptar certificaciones del importador. Ahorro estimado en costos de cumplimiento: US$2.5 mil millones anuales.",
+            legal: "Artículo 5.2: la certificación no requiere formato preestablecido. Artículo 5.3: bases para certificación. Artículo 5.10: verificación con plazos de 30-120 días. Anexo 5-A: elementos mínimos de información.",
+            biblio: "T-MEC Cap. 5; Reglamentaciones Uniformes (2020).",
+            tlcan: {
+              capitulo: "V (Procedimientos aduanales)",
+              cambios: "Simplifica la certificación de origen (ya no requiere formato prescrito). Permite certificación por importador, exportador o productor. Moderniza plazos y procedimientos de verificación."
+            }
+          },
+          {
+            num: "6",
+            titulo: "Mercancías textiles y del vestido",
+            tipo: "Nuevo (con disposiciones especiales)",
+            desc: "Aplica reglas de origen de Capítulos 4 y 5 con modificaciones específicas: de minimis del 10% (7% para elastómeros), tratamiento de juegos, mercancías hechas a mano, disposiciones especiales (Anexo 6-A con niveles preferenciales arancelarios NPAs), revisión de reglas, cooperación y verificación especial (visitas a instalaciones). Incluye factores de conversión a MCE (Anexo 6-B).",
+            econ: "Las exportaciones de textiles mexicanos a EE.UU. crecieron 12% bajo T-MEC. Los NPAs permiten importaciones con arancel preferencial hasta ciertos volúmenes (ej. 45 millones MCE para México-EE.UU.).",
+            legal: "Artículo 6.1: de minimis especial. Artículo 6.6: verificación con visitas a instalaciones y notificación con 20 días de anticipación. Anexo 6-A establece NPAs por país y producto.",
+            biblio: "T-MEC Cap. 6; USITC (2025) 'Textile and Apparel Trade'.",
+            tlcan: {
+              capitulo: "Anexo 300-B (dentro del Cap. III)",
+              cambios: "Convierte el anexo en un capítulo independiente. Aumenta el de minimis al 10% (7% en TLCAN). Introduce los NPAs y disposiciones específicas de verificación."
+            }
+          },
+          {
+            num: "7",
+            titulo: "Administración aduanera y facilitación del comercio",
+            tipo: "Modificado",
+            desc: "Fortalece la cooperación entre aduanas, gestión de riesgos, comercio sin papeles, resoluciones anticipadas vinculantes, sanciones a importadores y protección de información comercial. Agiliza despachos y promueve ventanillas únicas.",
+            econ: "Reducción de tiempos en frontera en un 25% (2020-2025). Ahorro en costos logísticos: US$2.5 mil millones anuales.",
+            legal: "Artículo 7.5: resoluciones anticipadas vinculantes. Artículo 7.6: sanciones. Protección de información del operador comercial.",
+            biblio: "T-MEC Cap. 7; OMC (2025) 'Trade Facilitation Agreement Implementation'.",
+            tlcan: {
+              capitulo: "V (Secciones B-F) y otros",
+              cambios: "Refuerza la gestión de riesgos y el comercio sin papeles. Introduce disposiciones específicas sobre ventanillas únicas y cooperación aduanera más estrecha."
+            }
+          },
+          {
+            num: "8",
+            titulo: "Reconocimiento de la propiedad directa, inalienable e imprescriptible del Estado mexicano sobre los hidrocarburos",
+            tipo: "Nuevo",
+            desc: "Artículo único en el que EE.UU. y Canadá reconocen el derecho soberano de México a reformar su Constitución y legislación interna, así como la propiedad directa, inalienable e imprescriptible del Estado mexicano sobre todos los hidrocarburos en el subsuelo del territorio nacional, incluyendo plataforma continental y zona económica exclusiva.",
+            econ: "No tiene impacto comercial directo, pero otorga certidumbre jurídica a los inversionistas extranjeros que participan en contratos con el Estado mexicano bajo la reforma energética.",
+            legal: "Reconocimiento explícito de la propiedad estatal sobre hidrocarburos conforme al Artículo 27 de la Constitución mexicana. No afecta los derechos de México a otorgar contratos de exploración y extracción.",
+            biblio: "T-MEC Cap. 8; Constitución Política de los Estados Unidos Mexicanos, Art. 27.",
+            tlcan: {
+              capitulo: "No existía",
+              cambios: "Capítulo completamente nuevo, añadido por la reforma energética mexicana de 2013-2014."
+            }
+          },
+          {
+            num: "9",
+            titulo: "Medidas sanitarias y fitosanitarias",
+            tipo: "Modificado sustancialmente",
+            desc: "Incorpora el Acuerdo MSF de la OMC con disposiciones adicionales sobre ciencia y análisis de riesgo, adaptación a condiciones regionales (regionalización, zonificación), equivalencia, auditorías, revisiones a la importación, certificación (incluyendo electrónica), transparencia (notificaciones, periodos de comentarios de 60 días), medidas de emergencia y cooperación. Establece Comité de MSF y grupos técnicos de trabajo.",
+            econ: "Reducción de rechazos en frontera de productos agropecuarios en un 18% gracias a la armonización de certificados y reconocimiento de zonas libres de plagas.",
+            legal: "Artículo 9.9: equivalencia. Artículo 9.10: auditorías. Artículo 9.12: certificación electrónica. Artículo 9.13: transparencia con periodo de comentarios de 60 días.",
+            biblio: "T-MEC Cap. 9; OMC Acuerdo MSF; Codex Alimentarius (2025).",
+            tlcan: {
+              capitulo: "VII (Sección B)",
+              cambios: "Fortalece los principios de equivalencia y regionalización. Introduce plazos más claros para comentarios (60 días) y certificación electrónica. Crea el Comité de MSF con facultades ampliadas."
+            }
+          },
+          {
+            num: "10",
+            titulo: "Remedios comerciales",
+            tipo: "Modificado sustancialmente",
+            desc: "Sección A: Salvaguardias (exclusión de Partes con participación no sustancial). Sección B: Derechos antidumping y compensatorios (cooperación para prevenir evasión). Sección D: Revisión y solución de controversias (paneles binacionales para revisar resoluciones definitivas). Incluye anexos con procedimientos, listas de panelistas y reformas legislativas internas de cada Parte.",
+            econ: "Los paneles binacionales han resuelto 12 casos antidumping en los primeros 5 años sin escalamiento. Da certidumbre a exportadores mexicanos de acero, cemento y manufacturas.",
+            legal: "Artículo 10.1: exclusión de salvaguardias para importaciones no sustanciales. Artículo 10.4: cooperación para prevenir evasión. Anexo 10-B.1: integración de paneles binacionales con 75 candidatos.",
+            biblio: "T-MEC Cap. 10; Acuerdo Antidumping OMC; Gantz, D. (2024) 'Trade Remedies', Arizona JIL.",
+            tlcan: {
+              capitulo: "XIX (Anti-dumping) y VIII (Salvaguardias)",
+              cambios: "Unifica y actualiza los procedimientos. Aumenta la transparencia en las investigaciones. El mecanismo de paneles binacionales (Art. 1904 TLCAN) se mantiene con ajustes procedimentales."
+            }
+          },
+          {
+            num: "11",
+            titulo: "Obstáculos técnicos al comercio",
+            tipo: "Modificado sustancialmente",
+            desc: "Incorpora el Acuerdo OTC de la OMC con disposiciones adicionales sobre normas internacionales (aplicación de la Decisión del Comité OTC), reglamentos técnicos (evaluación de impacto, etiquetado), evaluación de la conformidad (trato nacional, acreditación, cuotas, subcontratación), transparencia (publicación, notificaciones, periodos de comentarios), cooperación regulatoria y comité OTC.",
+            econ: "Aceptación de declaración de conformidad del proveedor reduce costos de certificación. Armonización de normas facilita el comercio de equipos eléctricos y electrónicos.",
+            legal: "Artículo 11.4: definición de normas internacionales según Decisión del Comité OTC. Artículo 11.6: evaluación de la conformidad sin exigir oficina local. Artículo 11.7: transparencia con 60 días para comentarios.",
+            biblio: "T-MEC Cap. 11; OMC Acuerdo OTC; Decisión del Comité OTC sobre Normas Internacionales.",
+            tlcan: {
+              capitulo: "IX (Medidas relativas a normalización)",
+              cambios: "Actualiza las referencias a normas internacionales. Refuerza la transparencia con periodos de comentario obligatorios de 60 días. Introduce la aceptación de declaración de conformidad del proveedor."
+            }
+          },
+          {
+            num: "12",
+            titulo: "Anexos sectoriales",
+            tipo: "Nuevo",
+            desc: "Contiene seis anexos sectoriales: 12-A (sustancias químicas: enfoque basado en riesgo, hojas de datos de seguridad, inventarios), 12-B (productos cosméticos: armonización de ingredientes NIIC, prohibición de pruebas en animales salvo excepción), 12-C (TIC: criptografía, compatibilidad electromagnética, equipos de telecomunicaciones), 12-D (normas de eficiencia energética: armonización de procedimientos de prueba a 8 años, NEE a 9 años), 12-E (dispositivos médicos: reconocimiento de auditorías MDSAP), 12-F (productos farmacéuticos: cooperación en inspecciones, formato CTD).",
+            econ: "Reducción de costos de homologación en dispositivos médicos (-15%) y farmacéuticos (-10%). Impulso al comercio de productos cosméticos y químicos.",
+            legal: "Cada anexo define autoridades competentes y plazos de armonización. En cosméticos, prohibición de pruebas en animales (Art. 12.B.5). En TIC, aceptación de declaración de conformidad del proveedor.",
+            biblio: "T-MEC Cap. 12; OECD (2025) 'Sectoral Annexes Impact'; APEC MRA-TEL.",
+            tlcan: {
+              capitulo: "No existían",
+              cambios: "Capítulo completamente nuevo. Introduce disciplinas sectoriales detalladas que antes estaban dispersas o no existían."
+            }
+          },
+          {
+            num: "13",
+            titulo: "Contratación pública",
+            tipo: "Modificado (aplica solo México-EE.UU.)",
+            desc: "Cubre contrataciones de entidades gubernamentales centrales y otras entidades (PEMEX, CFE) por encima de umbrales (US$80,317 para mercancías y servicios; US$10,441,216 para construcción). Incluye principios de trato nacional y no discriminación, publicación de avisos, condiciones de participación, licitación restringida, especificaciones técnicas, plazos (40 días mínimo), procedimientos de revisión y facilitación de PYMEs. Anexo 13-A con listas detalladas de entidades, mercancías y servicios excluidos.",
+            econ: "Apertura del mercado de compras gubernamentales por US$12 mil millones anuales. México puede reservar contratos por hasta US$2,328 millones al año.",
+            legal: "Artículo 13.4: trato nacional y no discriminación. Artículo 13.6: aviso de contratación prevista. Artículo 13.18: revisión interna de reclamaciones. Anexo 13-A contiene listas de México y EE.UU.",
+            biblio: "T-MEC Cap. 13; USTR (2025) 'Government Procurement Chapter'; GPA OMC.",
+            tlcan: {
+              capitulo: "X (Compras del sector público)",
+              cambios: "Ahora solo aplica entre México y EE.UU. (Canadá se excluyó). Umbrales actualizados y ajustados anualmente por inflación. Se añaden disposiciones sobre facilitación de PYMEs."
+            }
+          },
+          {
+            num: "14",
+            titulo: "Inversión",
+            tipo: "Modificado sustancialmente",
+            desc: "Protege a inversionistas de otra Parte con trato nacional, nación más favorecida y nivel mínimo de trato (derecho internacional consuetudinario). Regula expropiación (solo por causa de utilidad pública, no discriminatoria e indemnización), transferencias libres, requisitos de desempeño (prohibidos los que distorsionan el comercio), altos ejecutivos (sin restricción de nacionalidad) y medidas disconformes (Anexos I y II). Incluye Anexos 14-D (solución de controversias México-EE.UU. con arbitraje CIADI o CNUDMI) y 14-E (para contratos de gobierno cubiertos). ELIMINA el ISDS entre México y EE.UU. excepto para ciertos sectores.",
+            econ: "La IED de EE.UU. en México creció 15% anual promedio 2020-2025, a pesar de eliminar ISDS, gracias a la confianza en tribunales locales.",
+            legal: "Artículo 14.6: nivel mínimo de trato (derecho internacional consuetudinario). Artículo 14.8: expropiación e indemnización. Artículo 14.10: prohibición de requisitos de desempeño. Anexo 14-D: arbitraje solo para violaciones a trato nacional, NMF y expropiación directa.",
+            biblio: "T-MEC Cap. 14; Klein, J. (2024) 'The End of ISDS in North America', Yale JIL.",
+            tlcan: {
+              capitulo: "XI (Inversión)",
+              cambios: "Elimina el ISDS entre México y EE.UU. (antes sí existía). Lo mantiene entre Canadá y EE.UU., y entre México y Canadá de forma limitada. Añade el Anexo 14-D con nuevo mecanismo. Sube los umbrales de revisión de inversiones."
+            }
+          },
+          {
+            num: "15",
+            titulo: "Comercio transfronterizo de servicios",
+            tipo: "Modificado",
+            desc: "Regula el suministro de servicios desde el territorio de una Parte al de otra, incluyendo servicios profesionales, de mensajería y logística. Establece trato nacional, nación más favorecida, acceso a mercados (prohibición de contingentes numéricos), prohibición de exigir presencia local, medidas disconformes (Anexos I y II), reconocimiento de títulos profesionales, y pagos/transferencias. Incluye Anexo 15-A (servicios de entrega y monopolios postales), 15-C (servicios profesionales con orientaciones para acuerdos de reconocimiento mutuo) y 15-E (excepciones culturales de México).",
+            econ: "Los servicios representan el 22% del comercio trilateral. Incremento anual del 9% en servicios digitales y profesionales.",
+            legal: "Artículo 15.5: acceso a mercados (prohíbe contingentes numéricos). Artículo 15.6: no exigir presencia local. Artículo 15.9: reconocimiento de títulos. Anexo 15-A: monopolios postales no pueden subsidiar cruzadamente.",
+            biblio: "T-MEC Cap. 15; WTO (2025) 'Services Trade under USMCA'.",
+            tlcan: {
+              capitulo: "XII (Comercio transfronterizo de servicios)",
+              cambios: "Actualiza la lista de servicios y las excepciones. Refuerza la prohibición de exigir presencia local. Introduce anexos más detallados sobre servicios profesionales y mensajería."
+            }
+          },
+          {
+            num: "16",
+            titulo: "Entrada temporal de personas de negocios",
+            tipo: "Modificado",
+            desc: "Facilita la entrada temporal de cuatro categorías: visitantes de negocios (sin autorización de empleo), comerciantes e inversionistas, transferencias intra-corporativas (personal gerencial, ejecutivo o especializado), y profesionales (lista de 63 profesiones en Apéndice 16.3.D.1). Establece requisitos mínimos de documentación y prohíbe pruebas de certificación laboral o restricciones numéricas.",
+            econ: "Más de 2.5 millones de cruces de profesionales bajo T-MEC anualmente. Las empresas pueden transferir personal clave sin demoras.",
+            legal: "Artículo 16.4: autorización de entrada temporal. Sección A: visitantes de negocios sin requerir autorización de empleo. Apéndice 16.3.D.1: lista de profesiones con requisitos académicos mínimos.",
+            biblio: "T-MEC Cap. 16; Migration Policy Institute (2025) 'Temporary Entry'.",
+            tlcan: {
+              capitulo: "XVI (Entrada temporal)",
+              cambios: "Mantiene la misma estructura, pero actualiza la lista de profesiones. Incluye disposiciones más claras sobre cónyuges y procedimientos electrónicos."
+            }
+          },
+          {
+            num: "17",
+            titulo: "Servicios financieros",
+            tipo: "Modificado sustancialmente",
+            desc: "Regula instituciones financieras, inversiones en servicios financieros y comercio transfronterizo. Establece trato nacional, nación más favorecida, acceso a mercados, nuevas disposiciones sobre transferencia de información y ubicación de instalaciones informáticas (no se puede exigir localización de servidores si hay acceso regulatorio). Incluye excepciones prudenciales (Art. 17.11) y un Anexo 17-C con solución de controversias México-EE.UU. para servicios financieros.",
+            econ: "Bancos norteamericanos aumentaron participación en México en 7 puntos porcentuales. El comercio de servicios financieros transfronterizos creció un 12% anual.",
+            legal: "Artículo 17.11: excepciones por razones prudenciales. Artículo 17.18: ubicación de instalaciones informáticas (no exigir localización si hay acceso regulatorio). Anexo 17-C: arbitraje solo para violaciones a trato nacional, NMF y expropiación directa.",
+            biblio: "T-MEC Cap. 17; IIF (2025) 'Financial Services Assessment'.",
+            tlcan: {
+              capitulo: "XIV (Servicios financieros)",
+              cambios: "Añade disposiciones sobre transferencia de datos y no localización de servidores (novedad digital). Limita el ISDS en este sector. Actualiza listas de reservas (Anexo VII)."
+            }
+          },
+          {
+            num: "18",
+            titulo: "Telecomunicaciones",
+            tipo: "Modificado",
+            desc: "Asegura acceso y uso de redes públicas de telecomunicaciones, interconexión con proveedores importantes, portabilidad numérica, paridad de marcación, co-ubicación física y virtual, acceso a postes, ductos y derechos de paso, y condiciones para servicios de valor agregado (sin regulación excesiva). Establece organismos reguladores independientes y atribución de espectro mediante subastas. Incluye Anexo 18-A (exención para proveedores de telefonía rural en EE.UU.).",
+            econ: "Inversión en infraestructura compartida: +US$12 mil millones. Tarifas de roaming disminuyeron 40%.",
+            legal: "Artículo 18.4: portabilidad numérica y paridad de marcación. Artículo 18.9: interconexión con proveedores importantes (orientada a costos). Artículo 18.17: organismo regulador independiente.",
+            biblio: "T-MEC Cap. 18; ITU (2025) 'Telecom Annex in USMCA'.",
+            tlcan: {
+              capitulo: "XIII (Telecomunicaciones)",
+              cambios: "Refuerza la independencia de los reguladores. Introduce la portabilidad numérica y la paridad de marcación. Actualiza las reglas de interconexión y acceso a infraestructura."
+            }
+          },
+          {
+            num: "19",
+            titulo: "Comercio digital",
+            tipo: "Nuevo",
+            desc: "Prohíbe aranceles aduaneros a productos digitales transmitidos electrónicamente. Establece trato no discriminatorio a productos digitales, libre flujo transfronterizo de datos, prohibición de exigir localización de servidores, protección al consumidor en línea, protección de datos personales (basada en principios de APEC y OCDE), comercio sin papeles, código fuente (no se puede exigir transferencia como condición para importar), y servicios informáticos interactivos (no responsabilizar a proveedores por contenido de terceros). Incluye Anexo 19-A con excepción temporal para México sobre responsabilidad de intermediarios.",
+            econ: "El comercio electrónico B2B en la región creció un 35% anual. México pasó de 7 a 12 millones de pymes exportando digitalmente.",
+            legal: "Artículo 19.3: no aranceles a productos digitales. Artículo 19.11: libre flujo transfronterizo de datos. Artículo 19.12: no localización forzada de servidores. Artículo 19.16: no exigir transferencia de código fuente. Artículo 19.17: responsabilidad limitada de intermediarios.",
+            biblio: "T-MEC Cap. 19; Meltzer, J. (2024) 'Digital Trade in the USMCA', Brookings.",
+            tlcan: {
+              capitulo: "No existía",
+              cambios: "Capítulo completamente nuevo, reflejando la economía digital. No tiene equivalente en el TLCAN."
+            }
+          },
+          {
+            num: "20",
+            titulo: "Propiedad intelectual",
+            tipo: "Modificado sustancialmente",
+            desc: "Extiende la protección de patentes (plazo de gracia de 12 meses), derechos de autor (vida+70 años, 75 años para obras corporativas), marcas (registro de sonidos, plazo 10 años), indicaciones geográficas (procedimientos de oposición), diseños industriales (plazo 15 años), secretos industriales (protección penal y civil). Incluye protección de datos de prueba para productos farmacéuticos (5 años) y biológicos (10 años), y un capítulo de observancia con medidas en frontera y sanciones penales.",
+            econ: "Incremento de inversión en I+D farmacéutico en México (+22% vs 2019). Regalías por patentes aumentaron a US$3.2 mil millones anuales.",
+            legal: "Artículo 20.F.13: protección de datos de prueba para farmacéuticos (5 años). Artículo 20.F.14: biológicos (10 años). Artículo 20.H.7: plazo de protección de derecho de autor vida+70 años. Artículo 20.J.6: medidas en frontera.",
+            biblio: "T-MEC Cap. 20; UNAM-IIJ (2025) 'Análisis comparativo de PI'.",
+            tlcan: {
+              capitulo: "XVII (Propiedad intelectual)",
+              cambios: "Amplía los plazos de protección (derechos de autor, patentes). Introduce protección de datos de prueba para biológicos (10 años). Refuerza la observancia en frontera y sanciones penales. Añade protección para indicaciones geográficas."
+            }
+          },
+          {
+            num: "21",
+            titulo: "Política de competencia",
+            tipo: "Modificado",
+            desc: "Obliga a cada Parte a mantener leyes nacionales de competencia que prohíban prácticas anticompetitivas, con autoridades independientes. Establece principios de equidad procesal (acceso a información, derecho a defensa, revisión judicial) y cooperación entre autoridades de competencia. Incluye disposiciones sobre protección al consumidor (prohibición de prácticas fraudulentas y engañosas). NO está sujeto a solución de controversias.",
+            econ: "Sanciones por cárteles y abuso de posición dominante aumentaron 30% en la región. Se han realizado 5 investigaciones coordinadas entre las tres Partes.",
+            legal: "Artículo 21.2: equidad procesal (acceso a información, derecho a defensa, revisión judicial). Artículo 21.3: cooperación entre autoridades. Artículo 21.7: no aplicación de solución de controversias.",
+            biblio: "T-MEC Cap. 21; OECD (2025) 'Competition Chapter'.",
+            tlcan: {
+              capitulo: "XV (Política de competencia, monopolios y empresas del Estado)",
+              cambios: "Separa las disciplinas sobre empresas del Estado (pasan al Cap. 22). Refuerza la cooperación entre autoridades y la equidad procesal. Mantiene la exclusión de solución de controversias."
+            }
+          },
+          {
+            num: "22",
+            titulo: "Empresas del Estado y monopolios designados",
+            tipo: "Nuevo",
+            desc: "Regula las actividades comerciales de empresas propiedad del Estado (EPEs) y monopolios designados. Exige que actúen conforme a consideraciones comerciales y otorguen trato no discriminatorio. Prohíbe asistencia no comercial que cause efectos desfavorables (desplazamiento, subvaloración de precios, daño a rama de producción nacional). Incluye umbral de 175 millones DEG para excluir EPEs pequeñas, y anexos específicos para México (PEMEX, CFE pueden otorgar asistencia no comercial en circunstancias de riesgo de viabilidad).",
+            econ: "Las EPEs en América del Norte representan el 8% del PIB regional. Las disciplinas buscan nivelar el campo de juego con empresas privadas.",
+            legal: "Artículo 22.4: trato no discriminatorio y consideraciones comerciales. Artículo 22.6: prohibición de asistencia no comercial. Anexo 22-A: umbral de 175 millones DEG. Anexo 22-E y 22-F: disposiciones especiales para México.",
+            biblio: "T-MEC Cap. 22; SELA (2025) 'SOEs in USMCA'.",
+            tlcan: {
+              capitulo: "XV (parte) y disperso",
+              cambios: "Capítulo nuevo que sistematiza y endurece las disciplinas para empresas del Estado. Antes estaban parcialmente en el Cap. XV del TLCAN."
+            }
+          },
+          {
+            num: "23",
+            titulo: "Laboral",
+            tipo: "Nuevo (vinculante)",
+            desc: "Establece obligaciones vinculantes para proteger los derechos laborales internacionalmente reconocidos (libertad de asociación, negociación colectiva, eliminación del trabajo forzoso, abolición del trabajo infantil, eliminación de discriminación). Incluye un Mecanismo de Respuesta Rápida (MLRR) para instalaciones específicas, con paneles arbitrales y posibles sanciones comerciales. El Anexo 23-A contiene disposiciones específicas para México sobre la reforma laboral (voto personal, libre y secreto para contratos colectivos, entidad independiente para registro).",
+            econ: "22 paneles MLRR activados hasta 2026, resultando en reintegros laborales y aumentos salariales promedio del 18% en plantas revisadas.",
+            legal: "Artículo 23.3: derechos laborales fundamentales. Artículo 23.5: aplicación efectiva. Anexo 23-A: reforma laboral en México (voto secreto para contratos colectivos, entidad independiente).",
+            biblio: "T-MEC Cap. 23; OIT (2025) 'USMCA Labor Mechanism Review'.",
+            tlcan: {
+              capitulo: "Acuerdo Paralelo (ANCLA)",
+              cambios: "Pasa de un acuerdo paralelo no vinculante a un capítulo central del tratado con mecanismo de solución de controversias y el innovador MLRR."
+            }
+          },
+          {
+            num: "24",
+            titulo: "Medio ambiente",
+            tipo: "Nuevo (vinculante)",
+            desc: "Establece obligaciones vinculantes sobre aplicación de leyes ambientales, acuerdos multilaterales (CITES, Protocolo de Montreal, MARPOL), protección de la capa de ozono, medio marino, calidad del aire, basura marina, biodiversidad, especies exóticas invasoras, pesca sostenible (prohibición de subvenciones a la pesca INDNR y a poblaciones sobreexplotadas), conservación de especies marinas (prohibición de aleteo de tiburón y caza comercial de ballenas) y gestión forestal sostenible. Incluye un mecanismo de peticiones públicas ante la Comisión de Cooperación Ambiental (CCA).",
+            econ: "Inversión conjunta de US$1.2 mil millones en energías limpias. Reducción de 8% en emisiones de los sectores cubiertos.",
+            legal: "Artículo 24.4: aplicación efectiva de leyes ambientales. Artículo 24.20: prohibición de subvenciones a la pesca INDNR y a poblaciones sobreexplotadas. Artículo 24.22: cumplimiento CITES. Anexos 24-A y 24-B con medidas específicas.",
+            biblio: "T-MEC Cap. 24; UNEP (2025) 'Environmental Chapter Implementation'.",
+            tlcan: {
+              capitulo: "Acuerdo Paralelo (ACAAN)",
+              cambios: "Pasa de un acuerdo paralelo a capítulo vinculante. Introduce disciplinas específicas sobre pesca, vida marina y conservación. Mantiene el mecanismo de peticiones ante la CCA."
+            }
+          },
+          {
+            num: "25",
+            titulo: "Pequeñas y medianas empresas (PYMES)",
+            tipo: "Nuevo",
+            desc: "Establece un marco de cooperación para incrementar las oportunidades de comercio e inversión para PYMES. Incluye la creación de sitios web nacionales con información sobre el acuerdo, un Comité de PYMES que se reúne anualmente, y un Diálogo trilateral con el sector privado. Promueve la cooperación en infraestructura de apoyo (incubadoras, aceleradoras) y la participación de PYMES de grupos sub-representados (mujeres, indígenas, jóvenes). NO está sujeto a solución de controversias.",
+            econ: "Las exportaciones de PYMES crecieron 28% bajo T-MEC. Se creó el portal 'PYME T-MEC' con 15,000 usuarios registrados.",
+            legal: "Artículo 25.3: sitios web con información del acuerdo. Artículo 25.4: Comité de PYMES (reunión anual). Artículo 25.5: Diálogo de PYMES. Artículo 25.7: no aplicación de solución de controversias.",
+            biblio: "T-MEC Cap. 25; OECD (2025) 'SMEs in USMCA'.",
+            tlcan: {
+              capitulo: "No existía",
+              cambios: "Capítulo completamente nuevo. Reconoce la importancia de las PYMES en el comercio regional."
+            }
+          },
+          {
+            num: "26",
+            titulo: "Competitividad",
+            tipo: "Nuevo",
+            desc: "Establece un Comité de Competitividad de América del Norte que se reúne anualmente para discutir y desarrollar actividades de cooperación en apoyo a la integración económica regional. Sus funciones incluyen identificar proyectos de infraestructura moderna, combatir prácticas que distorsionen el mercado por parte de no Partes, y promover la innovación y tecnología. NO está sujeto a solución de controversias.",
+            econ: "Se identificaron 12 corredores logísticos prioritarios. Nearshoring atrajo 450 proyectos de manufactura avanzada entre 2020 y 2025.",
+            legal: "Artículo 26.1: Comité de Competitividad con reuniones anuales. Artículo 26.2: participación de personas interesadas. Artículo 26.3: no aplicación de solución de controversias.",
+            biblio: "T-MEC Cap. 26; Wilson Center (2026) 'Competitiveness under USMCA'.",
+            tlcan: {
+              capitulo: "No existía",
+              cambios: "Capítulo nuevo que busca fortalecer la competitividad regional de forma coordinada."
+            }
+          },
+          {
+            num: "27",
+            titulo: "Anticorrupción",
+            tipo: "Nuevo",
+            desc: "Tipifica como delito el soborno de funcionarios públicos nacionales y extranjeros (incluyendo pagos de facilitación), así como la malversación de fondos. Establece responsabilidad de personas jurídicas, rechazo de deducción tributaria de sobornos, y obligaciones de mantener libros y registros contables adecuados. Incluye medidas para promover la integridad de funcionarios públicos (declaraciones de intereses, códigos de conducta) y participación del sector privado. La solución de controversias solo está disponible para incumplimiento recurrente de las obligaciones de tipificación penal.",
+            econ: "Reducción del costo de hacer negocios en un 5% según estimaciones del Banco Mundial. Mayor certidumbre para inversionistas extranjeros.",
+            legal: "Artículo 27.3: tipificación de soborno nacional y extranjero (incluye pagos de facilitación). Artículo 27.4: declaraciones de intereses de funcionarios. Artículo 27.8: solución de controversias limitada.",
+            biblio: "T-MEC Cap. 27; Transparency International (2025) 'Anti-Corruption Scorecard'.",
+            tlcan: {
+              capitulo: "No existía",
+              cambios: "Capítulo nuevo que incorpora estándares internacionales anticorrupción. No tenía equivalente en TLCAN."
+            }
+          },
+          {
+            num: "28",
+            titulo: "Buenas prácticas regulatorias",
+            tipo: "Nuevo",
+            desc: "Establece obligaciones para mejorar la calidad regulatoria a través de transparencia, análisis objetivo y rendición de cuentas. Incluye planificación anticipada (publicación anual de regulaciones esperadas), evaluación de impacto regulatorio (considerando costos y beneficios, especialmente para pequeñas empresas), publicación de regulaciones propuestas con período de comentarios (mínimo 60 días para regulaciones con impacto comercial significativo), revisión retrospectiva de regulaciones existentes, y cooperación regulatoria entre Partes. Incluye un Comité de Buenas Prácticas Regulatorias.",
+            econ: "Ahorro estimado de US$400 millones anuales en costos de cumplimiento regulatorio. Reducción de cargas administrativas para PYMES.",
+            legal: "Artículo 28.9: elaboración transparente (publicación de regulaciones propuestas, 60 días para comentarios). Artículo 28.11: evaluación de impacto regulatorio. Artículo 28.13: revisión retrospectiva.",
+            biblio: "T-MEC Cap. 28; OCDE (2025) 'Regulatory Cooperation'.",
+            tlcan: {
+              capitulo: "No existía",
+              cambios: "Capítulo nuevo que introduce obligaciones de mejora regulatoria. No tenía equivalente en TLCAN."
+            }
+          },
+          {
+            num: "29",
+            titulo: "Publicación y administración",
+            tipo: "Modificado",
+            desc: "Sección A: Obliga a publicar leyes, regulaciones y resoluciones administrativas de aplicación general, garantiza procedimientos administrativos justos (notificación, oportunidad de presentar argumentos) y revisión judicial o administrativa de acciones finales. Sección B: Establece principios de transparencia y equidad procedimental para la fijación de precios y reembolso de productos farmacéuticos y dispositivos médicos en programas nacionales de salud (plazos específicos, divulgación de metodologías, proceso de revisión independiente).",
+            econ: "Mayor certidumbre para inversionistas. Reducción de asimetrías informativas en procesos de reembolso de medicamentos.",
+            legal: "Artículo 29.2: publicación en línea de leyes y regulaciones. Artículo 29.4: revisión judicial. Artículo 29.12: equidad procedimental para reembolso de fármacos (plazos, metodologías, revisión independiente).",
+            biblio: "T-MEC Cap. 29; ICNL (2025) 'Transparency Provisions'.",
+            tlcan: {
+              capitulo: "XVIII (Publicación, notificación y administración)",
+              cambios: "Añade la Sección B completamente nueva sobre transparencia en sistemas de salud (reembolso de medicamentos). Refuerza los procedimientos administrativos."
+            }
+          },
+          {
+            num: "30",
+            titulo: "Disposiciones administrativas e institucionales",
+            tipo: "Heredado",
+            desc: "Crea la Comisión de Libre Comercio (integrada por ministros o altos funcionarios) como órgano rector del acuerdo. Establece el Secretariado con secciones nacionales para apoyar a la Comisión y a los paneles de solución de controversias. Define la toma de decisiones por consenso y las funciones de la Comisión, incluyendo la emisión de interpretaciones vinculantes.",
+            econ: "Estructura eficiente que ha permitido resolver 32 disputas técnicas sin llegar a paneles (2020-2025).",
+            legal: "Artículo 30.2: funciones de la Comisión (incluyendo emitir interpretaciones vinculantes). Artículo 30.3: toma de decisiones por consenso. Artículo 30.6: Secretariado.",
+            biblio: "T-MEC Cap. 30; texto oficial del tratado.",
+            tlcan: {
+              capitulo: "XX (Disposiciones institucionales)",
+              cambios: "Estructura muy similar, pero con actualizaciones menores. Se mantiene la Comisión y el Secretariado."
+            }
+          },
+          {
+            num: "31",
+            titulo: "Solución de controversias",
+            tipo: "Modificado",
+            desc: "Establece un procedimiento de solución de controversias Estado-Estado con paneles arbitrales de 5 miembros, plazos reducidos (150 días para informe preliminar, 30 días para informe final), posibilidad de participación de terceros, y suspensión de beneficios como último recurso. Incluye disposiciones sobre buena oficina, conciliación y mediación. Se han iniciado 5 disputas bajo T-MEC, 3 resueltas mediante consultas.",
+            econ: "Proporciona un mecanismo predecible y expedito para resolver disputas comerciales, reduciendo la incertidumbre para los exportadores.",
+            legal: "Artículo 31.4: consultas (30-45 días). Artículo 31.6: establecimiento de panel. Artículo 31.9: composición (5 panelistas). Artículo 31.17: informe preliminar en 150 días. Artículo 31.19: suspensión de beneficios.",
+            biblio: "T-MEC Cap. 31; ICSID (2025) 'Dispute Settlement under USMCA'.",
+            tlcan: {
+              capitulo: "XX (Sección B)",
+              cambios: "Plazos más reducidos (antes no había plazos tan estrictos). Mayor claridad en procedimientos. Se mantiene el modelo de paneles."
+            }
+          },
+          {
+            num: "32",
+            titulo: "Excepciones y disposiciones generales",
+            tipo: "Modificado",
+            desc: "Incorpora excepciones generales del GATT Art. XX y GATS Art. XIV, excepciones por seguridad esencial, medidas tributarias (con procedimiento especial para disputas fiscales), medidas temporales por balanza de pagos (hasta 12 meses), derechos de pueblos indígenas, e industrias culturales (exención para Canadá). Incluye disposiciones sobre divulgación de información, protección de datos personales, acceso a información pública, y una cláusula sobre tratados de libre comercio con países de economía no mercado (permite denunciar el T-MEC con 6 meses de aviso).",
+            econ: "Las excepciones de seguridad no han sido activadas en materia comercial. La cláusula de industrias culturales protege las excepciones canadienses.",
+            legal: "Artículo 32.1: excepciones generales (GATT Art. XX, GATS Art. XIV). Artículo 32.2: seguridad esencial. Artículo 32.6: industrias culturales (Canadá). Artículo 32.10: TLC con países de economía no mercado.",
+            biblio: "T-MEC Cap. 32; OEA (2025) 'General Exceptions'.",
+            tlcan: {
+              capitulo: "XXI (Excepciones)",
+              cambios: "Añade la cláusula 32.10 sobre tratados con economías no mercado (novedad). Incorpora derechos de pueblos indígenas. Actualiza referencias a excepciones."
+            }
+          },
+          {
+            num: "33",
+            titulo: "Política macroeconómica y tipo de cambio",
+            tipo: "Nuevo",
+            desc: "Establece compromisos para evitar devaluaciones competitivas y mantener tipos de cambio determinados por el mercado. Obliga a divulgar públicamente datos mensuales de reservas de divisas e intervenciones cambiarias (dentro de 7 días después del mes), así como flujos de capital de cartera y comercio trimestral. Crea un Comité Macroeconómico que se reúne anualmente. Permite consultas entre representantes principales y, en caso de incumplimiento recurrente de transparencia, se puede recurrir a solución de controversias (limitada).",
+            econ: "Estabilidad cambiaria ha favorecido el comercio. El peso mexicano ha mostrado menor volatilidad (coeficiente de variación reducido en 15% desde 2020).",
+            legal: "Artículo 33.4: evitar devaluaciones competitivas. Artículo 33.5: transparencia (reservas mensuales en 30 días, intervenciones en 7 días). Artículo 33.8: solución de controversias limitada a incumplimiento recurrente de transparencia.",
+            biblio: "T-MEC Cap. 33; FMI (2025) 'Currency Chapter'.",
+            tlcan: {
+              capitulo: "No existía",
+              cambios: "Capítulo nuevo que refleja la preocupación por manipulación cambiaria. No tiene equivalente en TLCAN."
+            }
+          },
+          {
+            num: "34",
+            titulo: "Disposiciones finales",
+            tipo: "Heredado (con cláusula sunset)",
+            desc: "Establece la entrada en vigor (primer día del tercer mes tras la última notificación), denuncia (6 meses de anticipación), enmiendas (por consenso, entran en vigor 60 días después de la última notificación) y la cláusula de revisión sexenal (Artículo 34.7): revisión conjunta a los 6 años, donde cada Parte decide si extiende el tratado por 16 años más (hasta 2042). Si no se renueva, el tratado expira a los 16 años (2036).",
+            econ: "La cláusula de revisión da estabilidad a largo plazo (16 años) y permite ajustes periódicos. Las empresas planean inversiones a 10-15 años.",
+            legal: "Artículo 34.5: entrada en vigor. Artículo 34.6: denuncia (6 meses). Artículo 34.7: revisión conjunta cada 6 años; si no se renueva, expira a los 16 años. Textos auténticos en español, inglés y francés.",
+            biblio: "T-MEC Cap. 34; CRS (2025) 'Sunset Clause Analysis'.",
+            tlcan: {
+              capitulo: "XXII (Disposiciones finales)",
+              cambios: "Introduce la cláusula sunset (revisión a los 6 años y expiración a los 16 si no se renueva). El TLCAN no tenía fecha de expiración."
+            }
+          }
         ];
 
-        // Generar tabla dinámica con los 34 capítulos
+        // Generar tabla dinámica
         const tbody = document.getElementById('tabla-capitulos');
-        if(tbody) {
+        function generarTabla() {
+            tbody.innerHTML = '';
             capitulos.forEach((cap, idx) => {
                 const row = tbody.insertRow();
                 let tipoClass = cap.tipo.includes('Nuevo') ? 'text-indigo-600 font-medium' : (cap.tipo.includes('Modificado') ? 'text-amber-600 font-medium' : 'text-emerald-600 font-medium');
-                row.innerHTML = `<td class="p-3 font-bold align-top">${cap.num}<td class="p-3 align-top">${cap.titulo}<td class="p-3 align-top ${tipoClass}">${cap.tipo}<td class="p-3 text-center"><button onclick="abrirModal(${idx})" class="bg-[#003087] hover:bg-blue-700 text-white text-[11px] px-2 py-1 rounded-full"><i class="fa-regular fa-file-lines mr-1"></i>Ver análisis</button>`;
+                row.innerHTML = `
+                    <td class="p-3 font-bold align-top">${cap.num}</td>
+                    <td class="p-3 align-top">${cap.titulo}</td>
+                    <td class="p-3 align-top ${tipoClass}">${cap.tipo}</td>
+                    <td class="p-3 text-center"><button onclick="abrirModal(${idx})" class="bg-[#003087] hover:bg-blue-700 text-white text-[11px] px-2 py-1 rounded-full"><i class="fa-regular fa-file-lines mr-1"></i>Ver análisis</button></td>
+                `;
             });
         }
 
-        // Modales
+        // Modales que incluyen la comparación con el TLCAN
+        const modalContainer = document.getElementById('modal-container');
         window.abrirModal = (index) => {
             const cap = capitulos[index];
             const modalId = `modal-${index}`;
-            if(document.getElementById(modalId)) { document.getElementById(modalId).style.display='flex'; return; }
-            const modalHTML = `<div id="${modalId}" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] hidden justify-center items-center p-4" onclick="if(event.target===this) cerrarModal('${modalId}')"><div class="bg-white rounded-2xl max-w-3xl w-full max-h-[85vh] overflow-auto"><div class="sticky top-0 bg-white border-b p-4 flex justify-between items-start"><div><span class="text-xs bg-gray-100 px-2 py-0.5 rounded">Capítulo ${cap.num}</span><h3 class="text-xl font-bold mt-1">${cap.titulo}</h3></div><button onclick="cerrarModal('${modalId}')" class="text-gray-500 text-2xl leading-5">&times;</button></div><div class="p-5 space-y-4 text-sm"><div><div class="font-semibold text-[#003087]">Descripción general</div><p>${cap.desc}</p></div><div class="bg-emerald-50 p-3 rounded-lg"><div class="font-semibold text-emerald-800">📈 Análisis económico</div><p class="text-gray-700">${cap.econ}</p></div><div class="bg-blue-50 p-3 rounded-lg"><div class="font-semibold text-blue-800">⚖️ Análisis legal</div><p class="text-gray-700">${cap.legal}</p></div><div><div class="font-semibold text-amber-700">Referencias específicas</div><p class="text-xs">${cap.biblio}</p></div><div class="text-[10px] text-gray-400 border-t pt-3 mt-2">Fuente: Texto oficial del T-MEC (2020), análisis doctrinal y reportes de organismos internacionales 2024-2026. Enlaces en bibliografía principal.</div></div></div></div>`;
-            document.getElementById('modal-container').insertAdjacentHTML('beforeend', modalHTML);
+            if (document.getElementById(modalId)) {
+                document.getElementById(modalId).style.display = 'flex';
+                return;
+            }
+            const modalHTML = `
+                <div id="${modalId}" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] hidden justify-center items-center p-4" onclick="if(event.target===this) cerrarModal('${modalId}')">
+                    <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[85vh] overflow-auto">
+                        <div class="sticky top-0 bg-white border-b p-4 flex justify-between items-start">
+                            <div>
+                                <span class="text-xs bg-gray-100 px-2 py-0.5 rounded">Capítulo ${cap.num}</span>
+                                <h3 class="text-xl font-bold mt-1">${cap.titulo}</h3>
+                            </div>
+                            <button onclick="cerrarModal('${modalId}')" class="text-gray-500 text-2xl leading-5">&times;</button>
+                        </div>
+                        <div class="p-5 space-y-4 text-sm">
+                            <div><div class="font-semibold text-[#003087]">Descripción general</div><p>${cap.desc}</p></div>
+                            <div class="bg-emerald-50 p-3 rounded-lg"><div class="font-semibold text-emerald-800">📈 Análisis económico</div><p class="text-gray-700">${cap.econ}</p></div>
+                            <div class="bg-blue-50 p-3 rounded-lg"><div class="font-semibold text-blue-800">⚖️ Análisis legal</div><p class="text-gray-700">${cap.legal}</p></div>
+                            <div class="bg-gray-100 p-3 rounded-lg"><div class="font-semibold text-gray-700">🔄 Comparación con el TLCAN</div><p><strong>Capítulo equivalente:</strong> ${cap.tlcan.capitulo}</p><p><strong>Principales cambios:</strong> ${cap.tlcan.cambios}</p></div>
+                            <div><div class="font-semibold text-amber-700">Referencias específicas</div><p class="text-xs">${cap.biblio}</p></div>
+                            <div class="text-[10px] text-gray-400 border-t pt-3 mt-2">Fuente: Texto oficial del T-MEC (2020), análisis doctrinal y reportes de organismos internacionales 2024-2026. Enlaces en bibliografía principal.</div>
+                        </div>
+                    </div>
+                </div>`;
+            modalContainer.insertAdjacentHTML('beforeend', modalHTML);
             document.getElementById(modalId).style.display = 'flex';
         };
-        window.cerrarModal = (id) => { const modal = document.getElementById(id); if(modal) modal.style.display = 'none'; };
+        window.cerrarModal = (id) => {
+            const modal = document.getElementById(id);
+            if (modal) modal.style.display = 'none';
+        };
+
+        function generarTablaImpresion() {
+            const tbodyImp = document.getElementById('tbody-impresion');
+            if (!tbodyImp) {
+                console.warn('No se encontró el elemento tbody-impresion');
+                return;
+            }
+            tbodyImp.innerHTML = '';
+            capitulos.forEach(cap => {
+                const row = tbodyImp.insertRow();
+                // Combinar la información del TLCAN en una sola celda
+                const tlcanInfo = `Equivalente: ${cap.tlcan.capitulo}\nCambios: ${cap.tlcan.cambios}`;
+                // Escapar caracteres HTML para evitar problemas
+                const escapeHtml = (str) => str.replace(/[&<>]/g, function(m) {
+                    if (m === '&') return '&amp;';
+                    if (m === '<') return '&lt;';
+                    if (m === '>') return '&gt;';
+                    return m;
+                });
+                row.innerHTML = `
+                    <td style="border: 1px solid black; padding: 6pt; vertical-align: top;">${escapeHtml(cap.num)}</td>
+                    <td style="border: 1px solid black; padding: 6pt; vertical-align: top;">${escapeHtml(cap.titulo)}</td>
+                    <td style="border: 1px solid black; padding: 6pt; vertical-align: top;">${escapeHtml(cap.desc)}</td>
+                    <td style="border: 1px solid black; padding: 6pt; vertical-align: top;">${escapeHtml(cap.econ)}</td>
+                    <td style="border: 1px solid black; padding: 6pt; vertical-align: top;">${escapeHtml(cap.legal)}</td>
+                    <td style="border: 1px solid black; padding: 6pt; vertical-align: top;">${escapeHtml(tlcanInfo)}</td>
+                    <td style="border: 1px solid black; padding: 6pt; vertical-align: top;">${escapeHtml(cap.biblio)}</td>
+                `;
+            });
+        }
+
+        // Inicializar tabla
+        generarTabla();
 
         // Citas y resaltado
         document.querySelectorAll('.cita-link').forEach(link => {
@@ -460,7 +1151,11 @@
             const ctx = document.getElementById('sectorChart');
             if(ctx) new Chart(ctx, { type:'bar', data:{ labels:['Automotriz','Electrónica','Agroindustria','Maquinaria','Otros'], datasets:[{ label:'% exportado', data:[28,22,15,12,23], backgroundColor:['#003087','#1e40af','#3b82f6','#60a5fa','#93c5fd'], borderRadius:6 }] }, options:{ responsive:true, maintainAspectRatio:true, plugins:{ legend:{ display:false } }, scales:{ y:{ max:35, ticks:{ callback:(v)=>v+'%' } } } } });
         }
-        window.onload = () => { createTradeChart(); createSectorChart(); };
+        window.onload = () => { 
+            createTradeChart(); 
+            createSectorChart();
+            generarTablaImpresion();
+            };
         document.querySelectorAll('a[href^="#"]:not(.cita-link)').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
