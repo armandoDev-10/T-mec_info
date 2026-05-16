@@ -17,7 +17,7 @@
    ============================================ */
 body { font-family: 'Arial', 'Ubuntu', system-ui, sans-serif; }
 .heading-font { font-family: 'Arial', 'Ubuntu', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
-.hero-bg { background: linear-gradient(rgba(0, 48, 135, 0.85), rgba(0, 48, 135, 0.85)), url('https://picsum.photos/id/1015/2000/1200'); background-size: cover; background-position: center; }
+.hero-bg { background: linear-gradient(rgba(0, 48, 135, 0.85), rgba(0, 48, 135, 0.85)), url('https://www.ey.com/content/dam/ey-unified-site/ey-com/es-mx/insights/tax/images/ey-banner-tmec.jpg'); background-size: cover; background-position: center; }
 .nav-link { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
 .nav-link:hover { color: #003087; transform: translateY(-2px); }
 .timeline-item { transition: all 0.3s ease; }
@@ -282,6 +282,24 @@ canvas { max-height: 380px; width: 100% !important; }
         page-break-inside: avoid;
     }
 
+    #cap27, #cap27 * {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+    #cap27 canvas {
+        max-width: 100%;
+        height: auto;
+    }
+
+    #section232, #section232 * {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+    #section232 canvas {
+        max-width: 100%;
+        height: auto;
+    }
+
     /* Hero header */
     .hero-bg {
         background: #003087 !important;
@@ -340,6 +358,8 @@ canvas { max-height: 380px; width: 100% !important; }
                 <a href="#antecedentes" class="nav-link text-gray-600">Antecedentes</a>
                 <a href="#renovacion" class="nav-link text-gray-600">Capítulos</a>
                 <a href="#impacto" class="nav-link text-gray-600">Impacto</a>
+                <a href="#cap27" class="nav-link text-gray-600">Anticorrupción (Cap.27)</a>
+                <a href="#section232" class="nav-link text-gray-600">Sección 232</a>
                 <a href="#presupuesto" class="nav-link text-gray-600">Presupuesto</a>
                 <a href="#revision2026" class="nav-link text-gray-600">Revisión 2026</a>
                 <a href="#timeline" class="nav-link text-gray-600">Cronología</a>
@@ -372,8 +392,8 @@ canvas { max-height: 380px; width: 100% !important; }
                     <span class="inline-block px-3 py-1 bg-blue-100 text-[#003087] text-xs font-semibold rounded-full mb-3">SECCIÓN 1</span>
                     <h2 class="text-3xl md:text-4xl font-bold heading-font mb-4">Introducción</h2>
                     <div class="prose prose-sm md:prose-lg text-gray-600 space-y-3">
-                        <p>El Tratado de Libre Comercio de América del Norte (TLCAN), firmado en 1994, marcó el inicio de una nueva era de integración económica entre México, Estados Unidos y Canadá. El 1 de julio de 2020 entró en vigor su sucesor: el Tratado entre México, Estados Unidos y Canadá (T-MEC), una versión modernizada que respondió a los retos del siglo XXI<a href="#ref-intro" class="cita-link" data-ref="ref-intro"><sup>1</sup></a>.</p>
-                        <p>A seis años de su entrada en vigor, el T-MEC enfrenta su primera revisión obligatoria (2025-2026), un proceso que definirá el rumbo del comercio norteamericano para las próximas décadas<a href="#ref-intro" class="cita-link" data-ref="ref-intro"><sup>2</sup></a>.</p>
+                        <p>El Tratado de Libre Comercio de América del Norte (TLCAN), firmado en 1994, marcó el inicio de una nueva era de integración económica entre México, Estados Unidos y Canadá. El 1 de julio de 2020 entró en vigor su sucesor: el Tratado entre México, Estados Unidos y Canadá (T-MEC), una versión modernizada que respondió a los retos del siglo XXI<a href="#ref-intro" class="cita-link" data-ref="ref-intro"></a>.</p>
+                        <p>A seis años de su entrada en vigor, el T-MEC enfrenta su primera revisión obligatoria (2025-2026), un proceso que definirá el rumbo del comercio norteamericano para las próximas décadas<a href="#ref-intro" class="cita-link" data-ref="ref-intro"></a>.</p>
                     </div>
                 </div>
                 <div class="md:col-span-5">
@@ -383,7 +403,7 @@ canvas { max-height: 380px; width: 100% !important; }
                             <div><div class="text-4xl font-bold text-emerald-600">6</div><div class="text-xs uppercase">Años T-MEC</div></div>
                         </div>
                         <div class="h-px bg-gray-200 my-5"></div>
-                        <div class="text-center"><div class="font-semibold text-sm">Comercio trilateral 2025</div><div class="text-2xl font-bold">$1.92 billones USD</div><div class="text-xs text-gray-500">estimado (Secretaría de Economía)<a href="#ref-intro" class="cita-link" data-ref="ref-intro"><sup>1b</sup></a></div></div>
+                        <div class="text-center"><div class="font-semibold text-sm">Exportaciones totales de Mexico 2025</div><div class="text-2xl font-bold">$664,837.2 Millones USD</div><div class="text-xs text-gray-500">Datos del INEGI (Balanza comercial)<a href="#ref-intro" class="cita-link" data-ref="ref-intro"></a></div></div>
                     </div>
                 </div>
             </div>
@@ -397,17 +417,17 @@ canvas { max-height: 380px; width: 100% !important; }
                 <div>
                     <h3 class="text-xl font-semibold mb-4 flex items-center gap-2"><span class="text-2xl">📜</span> TLCAN (1994)</h3>
                     <ul class="space-y-3 text-gray-600 text-sm">
-                        <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-500 mt-0.5"></i> Eliminación progresiva de aranceles en 15 años<a href="#ref-antecedentes" class="cita-link" data-ref="ref-antecedentes"><sup>3</sup></a></li>
-                        <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-500 mt-0.5"></i> Mecanismos de solución de controversias (Capítulos 11, 19 y 20)<a href="#ref-antecedentes" class="cita-link" data-ref="ref-antecedentes"><sup>4</sup></a></li>
-                        <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-500 mt-0.5"></i> Atracción récord de inversión extranjera directa<a href="#ref-antecedentes" class="cita-link" data-ref="ref-antecedentes"><sup>5</sup></a></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-500 mt-0.5"></i> Eliminación progresiva de aranceles en 15 años<a href="#ref-antecedentes" class="cita-link" data-ref="ref-antecedentes"></a></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-500 mt-0.5"></i> Mecanismos de solución de controversias (Capítulos 11, 19 y 20)<a href="#ref-antecedentes" class="cita-link" data-ref="ref-antecedentes"></a></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-500 mt-0.5"></i> Atracción récord de inversión extranjera directa<a href="#ref-antecedentes" class="cita-link" data-ref="ref-antecedentes"></a></li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="text-xl font-semibold mb-4 text-[#003087]">¿Por qué renovar?</h3>
                     <div class="space-y-4">
-                        <div class="flex gap-3"><div class="w-8 h-8 bg-orange-100 rounded-xl flex items-center justify-center">🇺🇸</div><div><div class="font-semibold text-sm">Presión política de EE.UU.</div><div class="text-xs text-gray-500">Renegociación exigida por la administración Trump<a href="#ref-antecedentes" class="cita-link" data-ref="ref-antecedentes"><sup>6</sup></a></div></div></div>
-                        <div class="flex gap-3"><div class="w-8 h-8 bg-blue-100 rounded-xl flex items-center justify-center">🌐</div><div><div class="font-semibold text-sm">Actualización digital y laboral</div><div class="text-xs text-gray-500">Comercio electrónico, salarios mínimos en sector automotriz<a href="#ref-antecedentes" class="cita-link" data-ref="ref-antecedentes"><sup>7</sup></a></div></div></div>
-                        <div class="flex gap-3"><div class="w-8 h-8 bg-green-100 rounded-xl flex items-center justify-center">🌿</div><div><div class="font-semibold text-sm">Estándares ambientales y cláusula de revisión</div><div class="text-xs text-gray-500">Compromisos vinculantes y evaluación sexenal<a href="#ref-antecedentes" class="cita-link" data-ref="ref-antecedentes"><sup>8</sup></a></div></div></div>
+                        <div class="flex gap-3"><div class="w-8 h-8 bg-orange-100 rounded-xl flex items-center justify-center">🇺🇸</div><div><div class="font-semibold text-sm">Presión política de EE.UU.</div><div class="text-xs text-gray-500">Renegociación exigida por la administración Trump<a href="#ref-antecedentes" class="cita-link" data-ref="ref-antecedentes"></a></div></div></div>
+                        <div class="flex gap-3"><div class="w-8 h-8 bg-blue-100 rounded-xl flex items-center justify-center">🌐</div><div><div class="font-semibold text-sm">Actualización digital y laboral</div><div class="text-xs text-gray-500">Comercio electrónico, salarios mínimos en sector automotriz<a href="#ref-antecedentes" class="cita-link" data-ref="ref-antecedentes"></a></div></div></div>
+                        <div class="flex gap-3"><div class="w-8 h-8 bg-green-100 rounded-xl flex items-center justify-center">🌿</div><div><div class="font-semibold text-sm">Estándares ambientales y cláusula de revisión</div><div class="text-xs text-gray-500">Compromisos vinculantes y evaluación sexenal<a href="#ref-antecedentes" class="cita-link" data-ref="ref-antecedentes"></a></div></div></div>
                     </div>
                 </div>
             </div>
@@ -516,22 +536,331 @@ canvas { max-height: 380px; width: 100% !important; }
             <div class="grid lg:grid-cols-12 gap-6">
                 <div class="lg:col-span-7 bg-white p-5 rounded-2xl shadow"><h3 class="font-semibold mb-3 text-sm">Evolución del comercio México-EE.UU. (miles de millones USD)</h3><canvas id="tradeChart" style="height: 260px;"></canvas><div class="text-[10px] text-gray-400 mt-2">*Datos: Banco de México, Trade Data Monitor 2025.</div></div>
                 <div class="lg:col-span-5 space-y-4">
-                    <div class="bg-white rounded-2xl p-5 data-card"><div class="text-emerald-600 text-xs font-medium">EXPORTACIONES 2025</div><div class="text-4xl font-bold">≈ 490</div><div class="text-gray-500 text-xs">mil millones USD</div></div>
-                    <div class="bg-white rounded-2xl p-5 data-card"><div class="text-amber-600 text-xs font-medium">IED ACUMULADA 2018-2025</div><div class="text-4xl font-bold">≈ 310</div><div class="text-gray-500 text-xs">mil millones USD</div></div>
-                    <div class="grid grid-cols-2 gap-3"><div class="bg-white rounded-2xl p-4 text-center data-card"><div class="text-3xl font-bold text-[#003087]">3.1M</div><div class="text-[10px] uppercase">Empleos exportadores</div><div class="text-emerald-500 text-xs mt-1">+22% desde 2020</div></div>
+                    <div class="bg-white rounded-2xl p-5 data-card"><div class="text-emerald-600 text-xs font-medium">EXPORTACIONES (a EE.UU) 2025</div><div class="text-4xl font-bold">534,874</div><div class="text-gray-500 text-xs">millones USD</div></div>
+                    <div class="bg-white rounded-2xl p-5 data-card"><div class="text-amber-600 text-xs font-medium">IED (Record anual) 2018-2025</div><div class="text-4xl font-bold">40,871</div><div class="text-gray-500 text-xs">millones USD</div></div>
+                    <div class="grid grid-cols-2 gap-3"><div class="bg-white rounded-2xl p-4 text-center data-card"><div class="text-3xl font-bold text-[#003087]">Millones</div><div class="text-[10px] uppercase">Empleos exportadores</div><div class="text-emerald-500 text-xs mt-1"></div></div>
                     <div class="bg-white rounded-2xl p-4 text-center data-card"><div class="text-3xl font-bold text-violet-600">18.5%</div><div class="text-[10px] uppercase">del PIB</div><div class="text-gray-500 text-xs">dependencia comercial</div></div></div>
                 </div>
             </div>
             <div class="mt-8 bg-white p-5 rounded-2xl shadow"><h3 class="font-semibold mb-3 text-sm">Composición de exportaciones manufactureras (2025)</h3><canvas id="sectorChart" style="height: 240px;"></canvas><div class="text-[10px] text-gray-400 mt-2">*Fuente: INEGI, Balanza comercial 2025.</div></div>
         </section>
 
+        <!-- SECCIÓN: ANÁLISIS ECONÓMICO DEL CAPÍTULO 27 (ANTICORRUPCIÓN) -->
+        <section id="cap27" class="mb-16 md:mb-24 scroll-mt-20 bg-white rounded-2xl p-6 md:p-10 shadow-xl">
+            <span class="inline-block px-3 py-1 bg-purple-100 text-purple-800 text-xs font-semibold rounded-full">SECCIÓN 4.5 – CAPÍTULO 27</span>
+            <h2 class="text-3xl md:text-4xl font-bold heading-font mt-2 mb-4">Anticorrupción: fundamentos económicos y evidencia en el T-MEC</h2>
+            <p class="text-gray-600 mb-6">El Capítulo 27 del T-MEC es el primer capítulo vinculante contra la corrupción en un acuerdo comercial de Norteamérica. Su impacto económico trasciende lo legal: reduce asimetrías de información, disminuye costos de transacción y mejora la asignación de recursos.</p>
+
+            <!-- TEORÍA ECONÓMICA -->
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="bg-blue-50 p-5 rounded-xl">
+                    <h3 class="text-xl font-bold text-[#003087] mb-3">📘 Fundamentos teóricos</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><span class="font-semibold">🏛️ Teoría de la agencia y asimetrías de información:</span> La corrupción surge cuando el principal (Estado) no puede monitorear perfectamente al agente (funcionario). El Capítulo 27 impone sanciones penales y civiles, alineando incentivos.</li>
+                        <li><span class="font-semibold">💰 Costos de transacción (Coase, Williamson):</span> El soborno aumenta los costos de negociación y genera incertidumbre. La tipificación de pagos de facilitación reduce esos costos.</li>
+                        <li><span class="font-semibold">📉 Distorsión en la asignación de recursos:</span> La corrupción desvía inversiones hacia sectores con mayor opacidad, no con mayor productividad. El capítulo fomenta la competencia meritocrática.</li>
+                        <li><span class="font-semibold">🌍 Competitividad macroeconómica:</span> Países con menor corrupción atraen más IED y tienen mejores tasas de crecimiento (estudios del FMI y Banco Mundial).</li>
+                    </ul>
+                </div>
+                <div class="bg-amber-50 p-5 rounded-xl">
+                    <h3 class="text-xl font-bold text-amber-700 mb-3">📊 Evidencia empírica (pre y post T-MEC)</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><span class="font-semibold">🔍 Índice de Percepción de la Corrupción (IPC) 2025:</span> México registró 27 puntos según Transparency International. Si bien persisten desafíos importantes, el Capítulo 27 representa un avance en el fortalecimiento institucional y la cooperación regional contra la corrupción.</li>
+
+                        <li><span class="font-semibold">💼 Costos asociados a la corrupción:</span> Diversos estudios de la OECD y el Banco Mundial indican que marcos anticorrupción fuertes en acuerdos comerciales pueden reducir costos en contratación pública entre un 5% y 12% a mediano plazo.</li>
+
+                        <li><span class="font-semibold">🏭 Atracción de Inversión Extranjera:</span> México alcanzó un récord de IED de 40,871 millones de dólares en 2025. La mejora en estándares de transparencia y certidumbre jurídica ha sido uno de los factores que favorecen la llegada de inversión.</li>
+
+                        <li><span class="font-semibold">⚖️ Aplicación del Capítulo:</span> Se han activado mecanismos de cooperación entre las autoridades de los tres países, aunque su utilización ha sido moderada hasta el momento.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- GRÁFICO: Evolución de la percepción de corrupción -->
+            <div class="bg-white p-5 rounded-xl shadow mb-8">
+                <h3 class="font-semibold text-lg mb-2">📈 Índice de Percepción de la Corrupción (IPC) – América del Norte (2015-2025)</h3>
+                <canvas id="corruptionChart" style="height: 280px;"></canvas>
+                <div class="text-[11px] text-gray-500 mt-2">*Fuente: Transparency
+                  International – Corruption Perceptions Index 2025. 
+                  México: 27/100 (ranking 141/182). IPC: 0 (altamente corrupto) a 100 (muy transparente).</div>
+            </div>
+
+            <!-- TABLA DE IMPACTOS ECONÓMICOS CUANTIFICABLES - CAPÍTULO 27 -->
+            <div class="overflow-x-auto mb-8">
+                <h3 class="font-semibold text-lg mb-3">💰 Impactos económicos asociados al Capítulo 27 (estimaciones 2025-2026)</h3>
+                <table class="min-w-full bg-white border text-sm">
+                    <thead class="bg-gray-100">
+                        <tr>
+                            <th class="p-3 border">Concepto</th>
+                            <th class="p-3 border">México</th>
+                            <th class="p-3 border">EE. UU.</th>
+                            <th class="p-3 border">Canadá</th>
+                            <th class="p-3 border">Total región</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="p-3 border font-medium">Mejora en Índice de Percepción de Corrupción (IPC)</td>
+                            <td class="p-3 border">27/100 (2025)</td>
+                            <td class="p-3 border">64/100</td>
+                            <td class="p-3 border">75/100</td>
+                            <td class="p-3 border bg-purple-50">—</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 border font-medium">Reducción estimada en costos de corrupción en contratación pública</td>
+                            <td class="p-3 border">-8% a -12%</td>
+                            <td class="p-3 border">-5% a -8%</td>
+                            <td class="p-3 border">-4% a -6%</td>
+                            <td class="p-3 border bg-purple-50">-7% a -9% promedio</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 border font-medium">Inversión extranjera adicional atribuible a mayor certidumbre (acumulado 2021-2025)</td>
+                            <td class="p-3 border">+US$ 20,000 – 25,000 M</td>
+                            <td class="p-3 border">—</td>
+                            <td class="p-3 border">+US$ 6,000 M</td>
+                            <td class="p-3 border bg-purple-50">+US$ 30,000 M aprox.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 border font-medium">Aumento en recaudación fiscal por mayor formalidad</td>
+                            <td class="p-3 border">+1.5% a +2.5%</td>
+                            <td class="p-3 border">+0.8%</td>
+                            <td class="p-3 border">+0.6%</td>
+                            <td class="p-3 border bg-purple-50">+1.2% a +1.8% promedio</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-[10px] text-gray-400 mt-1">
+                    *Fuente: Transparency International CPI 2025 | Estimaciones basadas en reportes de OECD y Banco Mundial sobre impacto de marcos anticorrupción en acuerdos comerciales. No existen cifras oficiales exactas del impacto del Capítulo 27.
+                </p>
+            </div>
+
+            <!-- METODOLOGÍA CAPÍTULO 27 -->
+            <div class="bg-blue-50 border border-blue-200 p-5 rounded-2xl mt-6">
+                <div class="flex items-start gap-3">
+                    <div class="text-2xl">📐</div>
+                    <div>
+                        <h4 class="font-semibold text-blue-800 mb-2">Metodología de las cifras presentadas</h4>
+                        <ul class="text-sm text-blue-700 space-y-2">
+                            <li><strong>Índice de Percepción de Corrupción (IPC):</strong> Datos directos publicados por Transparency International (CPI 2025).</li>
+                            <li><strong>Reducción en costos de corrupción:</strong> Estimación basada en estudios de la OECD y Banco Mundial sobre el impacto promedio de marcos anticorrupción en acuerdos comerciales (rango histórico 5-15%).</li>
+                            <li><strong>Inversión extranjera adicional:</strong> Estimación derivada de modelos econométricos que correlacionan mejoras en percepción de corrupción con flujos de IED (fuentes: CEPAL y estudios de atracción de inversión 2021-2025).</li>
+                            <li><strong>Aumento en recaudación fiscal:</strong> Proyección basada en literatura económica sobre formalización y reducción de economía informal tras mejoras institucionales.</li>
+                        </ul>
+                        <p class="text-xs text-blue-600 mt-3">
+                            <strong>Importante:</strong> No existen cifras oficiales trilaterales exactas del impacto del Capítulo 27. Todas las estimaciones son conservadoras y basadas en modelos académicos e institucionales.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RELACIÓN CON LA REVISIÓN 2026 -->
+            <div class="bg-yellow-50 p-5 rounded-xl border border-yellow-200">
+                <div class="flex items-center gap-2 mb-2"><i class="fa-solid fa-gavel text-yellow-700"></i><span class="font-bold text-yellow-800">Importancia para la renegociación 2026</span></div>
+                <p class="text-sm">Las tres Partes han aceptado mantener el Capítulo 27 sin modificaciones sustanciales, pero han propuesto fortalecer los mecanismos de cooperación entre agencias anticorrupción (incluyendo la creación de un comité técnico conjunto) y extender las obligaciones a los pagos de facilitación transfronterizos. México impulsa que las sanciones civiles incluyan la inhabilitación permanente para contratar con el Estado. Se espera que el capítulo se mantenga como uno de los pilares del T-MEC renovado.</p>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: ANÁLISIS DE LA SECCIÓN 232 (ARANCELES AUTOMOTRICES) -->
+        <section id="section232" class="mb-16 md:mb-24 scroll-mt-20 bg-white rounded-2xl p-6 md:p-10 shadow-xl">
+            <span class="inline-block px-3 py-1 bg-slate-100 text-slate-800 text-xs font-semibold rounded-full">SECCIÓN 4.6 – SECCIÓN 232</span>
+            <h2 class="text-3xl md:text-4xl font-bold heading-font mt-2 mb-4">Sección 232: aranceles automotrices y su impacto en la integración regional</h2>
+            <p class="text-gray-600 mb-6">La Sección 232 de la <em>Trade Expansion Act de 1962</em> otorga al presidente de EE.UU. la facultad de imponer aranceles si las importaciones amenazan la seguridad nacional. Desde 2025, esta disposición se ha convertido en uno de los temas más controvertidos en la revisión del T-MEC, afectando directamente a la industria automotriz integrada de Norteamérica.</p>
+
+            <!-- TEORÍA ECONÓMICA -->
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="bg-slate-50 p-5 rounded-xl">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">📘 Fundamentos teóricos</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><span class="font-semibold">⚙️ Teoría de la seguridad nacional en el comercio:</span> La Sección 232 permite al ejecutivo estadounidense tomar medidas unilaterales si las importaciones afectan la base industrial de defensa. Su aplicación al sector automotriz se justifica por la importancia estratégica de la industria para la producción de vehículos militares, sistemas de transporte y logística.</li>
+                        <li><span class="font-semibold">🔗 Cadenas de valor globales (GVC):</span> La industria automotriz de América del Norte está profundamente integrada: un vehículo puede cruzar la frontera hasta 8 veces durante su producción. Los aranceles unilaterales interrumpen estas cadenas, aumentando los costos de coordinación y reduciendo la eficiencia productiva.</li>
+                        <li><span class="font-semibold">📈 Teoría de la desviación de comercio (Trade Diversion):</span> Los aranceles a México y Canadá crean incentivos para redirigir flujos comerciales hacia proveedores no norteamericanos (Japón, Corea del Sur, UE), contradiciendo el objetivo de fortalecer la integración regional.</li>
+                        <li><span class="font-semibold">🏭 Nearshoring y teoría de localización:</span> La incertidumbre arancelaria actúa como un impuesto a la inversión, retrasando decisiones de reubicación y reduciendo los beneficios esperados del nearshoring.</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-50 p-5 rounded-xl">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">📊 Evidencia empírica (2025-2026)</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><span class="font-semibold">🚗 Producción automotriz en México:</span> En 2025 se produjeron 3.95 millones de vehículos ligeros (-0.9% respecto a 2024). Las exportaciones de vehículos ligeros alcanzaron 3.38 millones de unidades (-2.7%).</li>
+                        
+                        <li><span class="font-semibold">📉 Impacto de los aranceles:</span> La imposición del arancel del 25% bajo Sección 232 generó costos adicionales estimados entre 30 y 40 mil millones de dólares para la cadena de suministro norteamericana, según consultoras sectoriales.</li>
+                        
+                        <li><span class="font-semibold">🇨🇦 Canadá y 🇲🇽 México:</span> Ambos países han identificado la eliminación o mitigación de estos aranceles como una de sus prioridades principales en la revisión 2026 del T-MEC.</li>
+                        
+                        <li><span class="font-semibold">🏭 Empleo e inversión:</span> A pesar de la presión arancelaria, la integración de las cadenas de valor regional se mantiene fuerte, aunque con menor dinamismo en inversión nueva durante 2025.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- GRÁFICO: Efecto de los aranceles 232 en el comercio automotriz -->
+            <div class="bg-white p-5 rounded-xl shadow mb-8">
+                <h3 class="font-semibold text-lg mb-2">📉 Evolución del comercio automotriz México-EE.UU. (2019-2025)</h3>
+                <canvas id="autoTradeChart" style="height: 280px;"></canvas>
+                <div class="text-[11px] text-gray-500 mt-2">*Fuente: INEGI -
+                  Registro Administrativo de la Industria Automotriz de Vehículos Ligeros (2025). 
+                  Caída moderada en exportaciones atribuible en parte a aranceles Sección 232.</div>
+            </div>
+
+            <!-- TABLA DE IMPACTOS CUANTIFICABLES - SECCIÓN 232 -->
+            <div class="overflow-x-auto mb-8">
+                <h3 class="font-semibold text-lg mb-3">💰 Impactos económicos de los aranceles Sección 232 (estimaciones 2025-2026)</h3>
+                <table class="min-w-full bg-white border text-sm">
+                    <thead class="bg-gray-100">
+                        <tr>
+                            <th class="p-3 border">Concepto</th>
+                            <th class="p-3 border">Estimación</th>
+                            <th class="p-3 border">Fuente</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="p-3 border font-medium">Producción de vehículos ligeros en México 2025</td>
+                            <td class="p-3 border">3.95 millones de unidades (-0.9%)</td>
+                            <td class="p-3 border">INEGI / AMIA 2026</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 border font-medium">Exportaciones de vehículos ligeros 2025</td>
+                            <td class="p-3 border">3.38 millones de unidades (-2.7%)</td>
+                            <td class="p-3 border">INEGI 2026</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 border font-medium">Incremento estimado en costos para la industria norteamericana</td>
+                            <td class="p-3 border">US$ 30,000 – 40,000 millones</td>
+                            <td class="p-3 border">Boston Consulting Group / Estimaciones sectoriales</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 border font-medium">Pérdida aproximada de empleos en México (sector automotriz)</td>
+                            <td class="p-3 border">≈ 60,000 empleos</td>
+                            <td class="p-3 border">Datos gubernamentales México 2026</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 border font-medium">Incremento promedio en precio de vehículos en EE.UU.</td>
+                            <td class="p-3 border">US$ 1,800 – 2,750 por unidad</td>
+                            <td class="p-3 border">Center for Automotive Research / Estimaciones 2025</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 border font-medium">Inversión en manufactura automotriz en EE.UU. (2024-2025)</td>
+                            <td class="p-3 border">Caída significativa</td>
+                            <td class="p-3 border">USITC</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-[10px] text-gray-400 mt-1">
+                    *Fuente: INEGI (Registro Administrativo de la Industria Automotriz de Vehículos Ligeros 2025-2026), Reuters, CRS (Congressional Research Service) y reportes sectoriales. Los aranceles del 25% se aplicaron con exenciones parciales para contenido USMCA-compliant.
+                </p>
+            </div>
+
+            <!-- METODOLOGÍA SECCIÓN 232 -->
+            <div class="bg-slate-50 border border-slate-200 p-5 rounded-2xl mt-6">
+                <div class="flex items-start gap-3">
+                    <div class="text-2xl">📐</div>
+                    <div>
+                        <h4 class="font-semibold text-slate-800 mb-2">Metodología de las cifras presentadas</h4>
+                        <ul class="text-sm text-slate-700 space-y-2">
+                            <li><strong>Producción y exportaciones de vehículos ligeros:</strong> Datos oficiales del Registro Administrativo de la Industria Automotriz de Vehículos Ligeros (INEGI/AMIA).</li>
+                            <li><strong>Incremento en costos para la industria:</strong> Estimaciones de Boston Consulting Group (BCG) y Center for Automotive Research (CAR) sobre el efecto de aranceles del 25% en cadenas de valor integradas.</li>
+                            <li><strong>Impacto en precios y empleos:</strong> Modelos del Center for Automotive Research (CAR) y US International Trade Commission (USITC).</li>
+                            <li><strong>Caída en inversión:</strong> Datos reportados por USITC y Secretaría de Economía de México.</li>
+                        </ul>
+                        <p class="text-xs text-slate-600 mt-3">
+                            <strong>Nota:</strong> Los aranceles Sección 232 incluyen exenciones parciales para productos que cumplen Reglas de Origen del T-MEC. Las cifras representan impactos netos observados y estimados durante 2025 y primer trimestre 2026.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- POSICIONES DE LAS PARTES Y ESCENARIOS -->
+            <div class="bg-slate-50 p-5 rounded-xl mb-8">
+                <h3 class="font-semibold text-lg mb-3">🌐 Posiciones de las Partes frente a la Sección 232</h3>
+                <div class="grid md:grid-cols-3 gap-4 text-sm">
+                    <div class="border-l-4 border-red-600 bg-white p-3 rounded-r-lg"><span class="font-bold text-red-700">🇺🇸 Estados Unidos</span><ul class="mt-2 space-y-1 text-xs"><li>• Defiende la Sección 232 como herramienta de seguridad nacional</li><li>• Propone aumentar RVC del 75% al 85% (ejecutivo de 2025)</li><li>• Busca cerrar vacíos que permiten elusión mediante China</li><li>• Ha ofrecido créditos arancelarios compensatorios</li></ul></div>
+                    <div class="border-l-4 border-green-700 bg-white p-3 rounded-r-lg"><span class="font-bold text-green-700">🇲🇽 México</span><ul class="mt-2 space-y-1 text-xs"><li>• Negocia eliminación total de aranceles 232 para bienes que cumplan ROO</li><li>• Busca trato no menos favorable que Japón, Corea o UE</li><li>• Propone cuotas negociadas como medida transitoria</li><li>• Advierte que aranceles distorsionan ventaja competitiva del nearshoring</li></ul></div>
+                    <div class="border-l-4 border-blue-700 bg-white p-3 rounded-r-lg"><span class="font-bold text-blue-700">🇨🇦 Canadá</span><ul class="mt-2 space-y-1 text-xs"><li>• Prioriza eliminación de aranceles para proteger su base exportadora</li><li>• Denuncia violación de acuerdos bilaterales</li><li>• Ha impuesto aranceles recíprocos en abril 2025</li><li>• Busca retorno a la "normalidad" en comercio automotriz</li></ul></div>
+                </div>
+            </div>
+
+            <!-- ESCENARIOS PARA LA RENEGOCIACIÓN -->
+            <div class="bg-yellow-50 p-5 rounded-xl border border-yellow-200">
+                <div class="flex items-center gap-2 mb-2"><i class="fa-solid fa-chart-line text-yellow-700"></i><span class="font-bold text-yellow-800">Escenarios probables para la renegociación 2026 (consenso de analistas)</span></div>
+                <div class="grid md:grid-cols-3 gap-4 text-sm mt-2">
+                    <div><span class="font-semibold">🔵 Escenario A (55%):</span> Extensión del T-MEC con eliminación parcial de aranceles 232 para vehículos USMCA-compliant; se mantiene RVC del 75%.</div>
+                    <div><span class="font-semibold">🟡 Escenario B (30%):</span> Renegociación técnica con alza selectiva de RVC (80% para vehículos eléctricos) y programa de cuotas escalonadas.</div>
+                    <div><span class="font-semibold">🔴 Escenario C (15%):</span> Estancamiento con mantenimiento de aranceles 232, disputas ante paneles T-MEC y erosión de la integración regional.</div>
+                </div>
+                <p class="text-xs text-gray-600 mt-3">*Probabilidades basadas en declaraciones oficiales, publicaciones de CSIS (2026), Atlantic Council (2026) y análisis de riesgo comercial de mayo 2026.</p>
+            </div>
+        </section>
+
         <!-- PRESUPUESTO -->
         <section id="presupuesto" class="mb-16 md:mb-24 scroll-mt-20 bg-gradient-to-br from-slate-900 to-[#003087] text-white rounded-2xl p-6 md:p-10 shadow-xl">
             <span class="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded-full">SECCIÓN 5</span>
             <h2 class="text-3xl md:text-4xl font-bold heading-font mt-2 mb-6">Implicaciones para el Presupuesto de Egresos de México</h2>
+
+            <p class="text-white/80 mb-8 max-w-3xl">
+                El T-MEC ha tenido un impacto neto positivo en las finanzas públicas mexicanas, principalmente a través del crecimiento económico y el aumento en la recaudación de impuestos indirectos, aunque los ingresos por aranceles son mínimos.
+            </p>
+
             <div class="grid md:grid-cols-2 gap-8">
-                <div><h3 class="uppercase text-xs tracking-widest mb-3 text-blue-300">Ingresos fiscales</h3><ul class="space-y-3 text-sm"><li class="flex gap-2"><span class="text-emerald-300">+</span> Mayor recaudación de IVA e ISR (expansión económica del 12% real 2020-2025)</li><li class="flex gap-2"><span class="text-amber-300">-</span> Casi cero aranceles (<0.5% de ingresos totales)</li></ul></div>
-                <div><h3 class="uppercase text-xs tracking-widest mb-3 text-blue-300">Gastos e inversión adicional</h3><div class="bg-white/10 rounded-xl p-4 text-sm"><table class="w-full"><tr><td class="py-2">Infraestructura fronteriza</td><td class="text-right">+ MXN 52 mil M</td></tr><tr><td class="py-2">Cumplimiento laboral</td><td class="text-right">+ MXN 15 mil M</td></tr><tr><td class="py-2">Modernización aduanera</td><td class="text-right">+ MXN 30 mil M</td></tr></table></div></div>
+
+                <!-- Ingresos Fiscales -->
+                <div>
+                    <h3 class="uppercase text-xs tracking-widest mb-4 text-blue-300">Ingresos fiscales</h3>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex gap-3">
+                            <span class="text-emerald-400 text-xl leading-none mt-0.5">↑</span>
+                            <div>
+                                <div class="font-medium">Mayor recaudación de IVA e ISR</div>
+                                <div class="text-white/70 text-xs">Impulsada por el crecimiento del comercio y la formalización económica (+8% a 12% real acumulado 2020-2025)</div>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-amber-400 text-xl leading-none mt-0.5">↓</span>
+                            <div>
+                                <div class="font-medium">Ingresos por aranceles</div>
+                                <div class="text-white/70 text-xs">Menos del 0.3% del total de ingresos públicos (casi eliminados por el tratado)</div>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-emerald-400 text-xl leading-none mt-0.5">↑</span>
+                            <div>
+                                <div class="font-medium">Nearshoring e IED</div>
+                                <div class="text-white/70 text-xs">Aumento significativo en recaudación por impuestos a la inversión extranjera y empleo formal</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Gastos e Inversión Adicional -->
+                <div>
+                    <h3 class="uppercase text-xs tracking-widest mb-4 text-blue-300">Gastos e inversión adicional vinculada al T-MEC</h3>
+                    <div class="bg-white/10 rounded-2xl p-5 text-sm">
+                        <table class="w-full">
+                            <tr class="border-b border-white/20">
+                                <td class="py-3">Infraestructura fronteriza y aduanera</td>
+                                <td class="text-right font-medium">+ MXN 45,000 – 60,000 millones</td>
+                            </tr>
+                            <tr class="border-b border-white/20">
+                                <td class="py-3">Cumplimiento laboral (reforma y paneles MLRR)</td>
+                                <td class="text-right font-medium">+ MXN 12,000 – 18,000 millones</td>
+                            </tr>
+                            <tr class="border-b border-white/20">
+                                <td class="py-3">Modernización aduanera y facilitación comercial</td>
+                                <td class="text-right font-medium">+ MXN 25,000 – 35,000 millones</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 font-medium text-emerald-300">Total estimado adicional (2021-2026)</td>
+                                <td class="text-right font-bold text-emerald-300">≈ MXN 90,000 – 120,000 millones</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <p class="text-xs text-white/60 mt-4">
+                        *Cifras estimadas acumuladas. Fuente: SHCP y Secretaría de Economía.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Metodología / Nota -->
+            <div class="mt-8 bg-white/10 border border-white/20 rounded-2xl p-5 text-xs">
+                <strong>Metodología:</strong> Las estimaciones de ingresos se basan en el crecimiento real del PIB manufacturero y recaudación tributaria reportada por la SHCP. Los gastos adicionales corresponden a partidas presupuestales destinadas a infraestructura, cumplimiento laboral y modernización aduanera vinculadas directamente con obligaciones del T-MEC.
             </div>
         </section>
 
@@ -539,18 +868,106 @@ canvas { max-height: 380px; width: 100% !important; }
         <section id="revision2026" class="mb-16 md:mb-24 scroll-mt-20 bg-white rounded-2xl p-6 md:p-10 shadow-xl">
             <span class="inline-block px-3 py-1 bg-red-100 text-red-700 text-xs font-semibold rounded-full">SECCIÓN 6 – ACTUALIZACIÓN 2026</span>
             <h2 class="text-3xl md:text-4xl font-bold heading-font mt-2 mb-4">Revisión y renegociación 2025-2026</h2>
-            <p class="text-gray-600 mb-6">El Artículo 34.7 del T-MEC establece una revisión conjunta a los seis años de su entrada en vigor. El proceso inició formalmente en 2025 y culminará en julio de 2026 con una decisión sobre la extensión del tratado por 16 años más (hasta 2042) o su posible renegociación anual.</p>
+
+            <p class="text-gray-600 mb-8">
+                El Artículo 34.7 del T-MEC establece una revisión conjunta obligatoria a los seis años de su entrada en vigor. El proceso inició formalmente en 2025 y se espera que concluya en julio de 2026 con una decisión sobre la extensión del tratado por 16 años adicionales (hasta 2042) o su posible renegociación.
+            </p>
+
             <div class="grid md:grid-cols-2 gap-6 mb-8">
-                <div class="bg-blue-50 p-5 rounded-xl"><div class="text-xl font-bold text-[#003087]">Calendario 2025-2026</div><ul class="mt-3 space-y-2 text-xs"><li>📅 Oct 2025: Publicación de evaluaciones nacionales</li><li>📅 Ene-Mar 2026: Rondas técnicas bilaterales y trilaterales</li><li>📅 Abr-May 2026: Consultas públicas y propuestas formales</li><li>🚩 1 Jul 2026: Decisión del Consejo de Libre Comercio</li></ul></div>
-                <div class="bg-amber-50 p-5 rounded-xl"><div class="text-xl font-bold text-amber-700">Datos clave 2025</div><ul class="mt-3 space-y-2 text-xs"><li>💰 Comercio intra-T-MEC: $1.92 billones USD (+8.2% vs 2024)</li><li>🏭 Nearshoring: +$45 mil millones en inversiones anunciadas</li><li>👷 Salario automotriz promedio: $4.90 USD/hora</li><li>⚖️ Paneles laborales activados (MLRR): 22 casos desde 2020</li></ul></div>
+                <div class="bg-blue-50 p-5 rounded-xl">
+                    <div class="text-xl font-bold text-[#003087] mb-3">Calendario 2025-2026</div>
+                    <ul class="mt-3 space-y-2.5 text-sm">
+                        <li>📅 Octubre 2025: Publicación de evaluaciones nacionales</li>
+                        <li>📅 Enero – Marzo 2026: Rondas técnicas bilaterales y trilaterales</li>
+                        <li>📅 Abril – Mayo 2026: Consultas públicas y propuestas formales</li>
+                        <li>🚩 1 de Julio 2026: Decisión del Consejo de Libre Comercio</li>
+                    </ul>
+                </div>
+
+                <div class="bg-amber-50 p-5 rounded-xl">
+                    <div class="text-xl font-bold text-amber-700 mb-3">Datos clave del comercio 2025</div>
+                    <ul class="mt-3 space-y-2.5 text-sm">
+                        <li>💰 Comercio trilateral aproximado: <strong>1.78 – 1.85 billones USD</strong></li>
+                        <li>🏭 Nearshoring: Más de <strong>45 mil millones USD</strong> en inversiones anunciadas (2021-2025)</li>
+                        <li>👷 Salario promedio sector automotriz México: <strong>≈ 4.90 USD/hora</strong></li>
+                        <li>⚖️ Paneles Laborales (MLRR): Más de 22 casos activados desde 2020</li>
+                    </ul>
+                </div>
             </div>
-            <h3 class="text-xl font-semibold mb-3">Posiciones de las partes y escenarios de renegociación 2026</h3>
-            <div class="grid md:grid-cols-3 gap-4 text-sm mb-6">
-                <div class="border-l-4 border-[#003087] bg-gray-50 p-4 rounded-r-xl"><div class="font-bold text-lg">🇺🇸 Estados Unidos</div><ul class="mt-2 space-y-1 text-xs"><li>• Incrementar contenido regional a 80-85% en autos</li><li>• Restricciones a vehículos con insumos de China</li><li>• Vinculación ambiental más estricta</li></ul><div class="text-[10px] text-gray-500 mt-2">Fuente: USTR (2026), CSIS (2026)</div></div>
-                <div class="border-l-4 border-emerald-600 bg-gray-50 p-4 rounded-r-xl"><div class="font-bold text-lg">🇲🇽 México</div><ul class="mt-2 space-y-1 text-xs"><li>• Mantener reglas actuales para proteger cadenas de suministro</li><li>• Capítulo de energía con certidumbre jurídica</li><li>• Ampliar facilidades para pymes y comercio digital</li></ul><div class="text-[10px] text-gray-500 mt-2">Fuente: Secretaría de Economía (2026), COMCE (2026)</div></div>
-                <div class="border-l-4 border-red-500 bg-gray-50 p-4 rounded-r-xl"><div class="font-bold text-lg">🇨🇦 Canadá</div><ul class="mt-2 space-y-1 text-xs"><li>• Defensa del sistema de solución de controversias (ISDS)</li><li>• Protección de industrias culturales y propiedad intelectual</li><li>• Estándares digitales elevados</li></ul><div class="text-[10px] text-gray-500 mt-2">Fuente: Global Affairs Canada (2026), C.D. Howe Institute (2026)</div></div>
+
+            <h3 class="text-xl font-semibold mb-4">Posiciones de las partes en la revisión 2026</h3>
+            <div class="grid md:grid-cols-3 gap-4 text-sm mb-8">
+                <div class="border-l-4 border-[#003087] bg-gray-50 p-5 rounded-r-xl">
+                    <div class="font-bold text-lg mb-2">🇺🇸 Estados Unidos</div>
+                    <ul class="space-y-1.5 text-xs">
+                        <li>• Aumentar contenido regional automotriz (80-85%)</li>
+                        <li>• Restricciones más fuertes a insumos de China</li>
+                        <li>• Mayor vinculación de estándares laborales y ambientales</li>
+                        <li>• Fortalecimiento de reglas de origen</li>
+                    </ul>
+                </div>
+
+                <div class="border-l-4 border-emerald-600 bg-gray-50 p-5 rounded-r-xl">
+                    <div class="font-bold text-lg mb-2">🇲🇽 México</div>
+                    <ul class="space-y-1.5 text-xs">
+                        <li>• Mantener reglas de origen actuales y certidumbre</li>
+                        <li>• Capítulo de energía con mayor seguridad jurídica</li>
+                        <li>• Eliminación de aranceles Sección 232 para bienes T-MEC compliant</li>
+                        <li>• Fortalecimiento de apoyo a PYMES y comercio digital</li>
+                    </ul>
+                </div>
+
+                <div class="border-l-4 border-red-500 bg-gray-50 p-5 rounded-r-xl">
+                    <div class="font-bold text-lg mb-2">🇨🇦 Canadá</div>
+                    <ul class="space-y-1.5 text-xs">
+                        <li>• Eliminación de aranceles Sección 232</li>
+                        <li>• Defensa del sistema de solución de controversias</li>
+                        <li>• Protección de industrias culturales y propiedad intelectual</li>
+                        <li>• Estándares elevados en comercio digital y medio ambiente</li>
+                    </ul>
+                </div>
             </div>
-            <div class="bg-yellow-50 p-4 rounded-xl border"><div class="font-bold text-yellow-800">📊 Escenarios más probables (consenso de analistas, mayo 2026)</div><div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2 text-xs"><div><span class="font-semibold">A) Extensión por 16 años (70%):</span> Ajustes moderados en reglas de origen y energía, sin cambios estructurales.</div><div><span class="font-semibold">B) Revisión anual con modificaciones (25%):</span> Se imponen paneles de seguimiento específicos para laboral y medio ambiente.</div><div class="sm:col-span-2"><span class="font-semibold">C) Renegociación mayor (5%):</span> Posible si hay cambio de gobierno en EE.UU. o tensiones comerciales severas.</div></div></div>
+
+            <div class="bg-yellow-50 p-5 rounded-2xl border border-yellow-200">
+                <div class="font-bold text-yellow-800 mb-3">📊 Escenarios más probables (consenso de analistas – mayo 2026)</div>
+                <div class="grid md:grid-cols-3 gap-4 text-sm">
+                    <div class="bg-white p-4 rounded-xl">
+                        <span class="font-semibold text-emerald-600">Escenario A (65-70%)</span><br>
+                        Extensión por 16 años con ajustes moderados en reglas de origen, nearshoring y resolución de aranceles 232.
+                    </div>
+                    <div class="bg-white p-4 rounded-xl">
+                        <span class="font-semibold text-amber-600">Escenario B (25-30%)</span><br>
+                        Renegociación técnica con modificaciones específicas (origen automotriz, laboral y digital).
+                    </div>
+                    <div class="bg-white p-4 rounded-xl">
+                        <span class="font-semibold text-red-600">Escenario C (5-10%)</span><br>
+                        Estancamiento o renegociación mayor debido a tensiones geopolíticas o cambio de administración en EE.UU.
+                    </div>
+                </div>
+
+                <!-- METODOLOGÍA REVISIÓN 2026 -->
+                <div class="mt-10 bg-sky-50 border border-sky-200 p-6 rounded-2xl">
+                    <div class="flex items-start gap-3">
+                        <div class="text-3xl">📐</div>
+                        <div class="flex-1">
+                            <h4 class="font-semibold text-sky-800 mb-3 text-lg">Metodología</h4>
+                            <ul class="text-sm text-sky-700 space-y-2.5">
+                                <li><strong>Calendario del proceso:</strong> Basado en el Artículo 34.7 del T-MEC y comunicados oficiales de USTR, Secretaría de Economía y Global Affairs Canada (2025-2026).</li>
+
+                                <li><strong>Datos económicos 2025:</strong> Información consolidada de INEGI, Banco de México y Secretaría de Economía (Balanza Comercial y reportes de Nearshoring).</li>
+
+                                <li><strong>Posiciones de las Partes:</strong> Compilación de declaraciones oficiales, documentos negociadores y comunicados de USTR, Secretaría de Economía de México y Global Affairs Canada.</li>
+
+                                <li><strong>Escenarios y probabilidades:</strong> Consenso cualitativo derivado de análisis de think tanks especializados (CSIS, Brookings Institution, Atlantic Council y Wilson Center) publicados entre marzo y mayo de 2026.</li>
+                            </ul>
+
+                            <p class="text-xs text-sky-600 mt-4 border-t border-sky-200 pt-3">
+                                <strong>Importante:</strong> Las probabilidades de los escenarios son estimaciones de analistas y no representan una predicción exacta. El proceso de revisión sigue en curso al momento de esta publicación (mayo 2026).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- CRONOLOGÍA -->
@@ -568,29 +985,84 @@ canvas { max-height: 380px; width: 100% !important; }
 
         <!-- BIBLIOGRAFÍA -->
         <section class="mb-12" id="bibliografia">
-            <h2 class="text-2xl md:text-3xl font-bold heading-font mb-6">📚 Bibliografía y fuentes de respaldo (enlaces verificados)</h2>
-            <div class="grid md:grid-cols-2 gap-6 text-xs">
-                <div class="space-y-4">
-                    <div id="ref-intro" class="scroll-mt-20 p-2 rounded"><span class="font-semibold">Introducción:</span><br>1. <a href="https://www.gob.mx/se" target="_blank" class="text-blue-600 underline">Secretaría de Economía (2025). Evaluación interna del T-MEC 2020-2025</a><br>2. <a href="https://crsreports.congress.gov/" target="_blank" class="text-blue-600 underline">Villarreal, M. A. (2025). USMCA: Overview and Key Issues for the 2026 Review. CRS.</a><br>1b. <a href="https://www.economia.gob.mx/" target="_blank" class="text-blue-600 underline">Secretaría de Economía - Reporte de comercio exterior 2025.</a></div>
-                    <div id="ref-antecedentes" class="scroll-mt-20 p-2 rounded"><span class="font-semibold">Antecedentes (TLCAN y razones):</span><br>3. <a href="https://www.ustr.gov/trade-agreements/free-trade-agreements/north-american-free-trade-agreement-nafta" target="_blank" class="text-blue-600 underline">Texto oficial TLCAN (1994)</a><br>4. <a href="https://arizonalawjournal.org/" target="_blank" class="text-blue-600 underline">Gantz, D. A. (2024). The USMCA’s Sunset Clause. Arizona JIL.</a><br>5. <a href="https://www.banxico.org.mx/" target="_blank" class="text-blue-600 underline">Banco de México (2025). Informe trimestral IED.</a><br>6. <a href="https://ustr.gov/about-us/policy-offices/press-office/press-releases/2017/may/ustr-announces-president-trump" target="_blank" class="text-blue-600 underline">USTR (2017). Renegotiation of NAFTA.</a><br>7. <a href="https://www.ilo.org/" target="_blank" class="text-blue-600 underline">OIT (2025). USMCA Labor Mechanism Review.</a><br>8. <a href="https://www.gob.mx/t-mec" target="_blank" class="text-blue-600 underline">Capítulos 23 y 24 del T-MEC.</a></div>
-                    <div id="ref-cambiosclave" class="scroll-mt-20 p-2 rounded"><span class="font-semibold">Cambios operativos clave:</span><br>9-18. <a href="https://www.ustr.gov/trade-agreements/free-trade-agreements/united-states-mexico-canada-agreement" target="_blank" class="text-blue-600 underline">Texto oficial T-MEC (2020)</a>; <a href="https://crsreports.congress.gov/" target="_blank" class="text-blue-600 underline">CRS (2025)</a>; <a href="https://www.wilsoncenter.org/" target="_blank" class="text-blue-600 underline">Wilson Center (2026)</a>; <a href="https://www.usitc.gov/" target="_blank" class="text-blue-600 underline">USITC (2025)</a>.</div>
-                    <div id="ref-impacto" class="scroll-mt-20 p-2 rounded"><span class="font-semibold">Impacto económico:</span><br>19. <a href="https://www.banxico.org.mx/" target="_blank" class="text-blue-600 underline">Banco de México (2026) Balanza comercial.</a><br>20. <a href="https://www.economia.gob.mx/" target="_blank" class="text-blue-600 underline">Secretaría de Economía - IED acumulada 2018-2025.</a><br>21. <a href="https://www.inegi.org.mx/" target="_blank" class="text-blue-600 underline">INEGI (2026) Empleo exportador.</a><br>22. <a href="https://www.inegi.org.mx/" target="_blank" class="text-blue-600 underline">INEGI (2026) PIB y comercio.</a></div>
+            <h2 class="text-2xl md:text-3xl font-bold heading-font mb-6">📚 Fuentes Oficiales y Bibliografía (Actualizado a mayo 2026)</h2>
+            <div class="grid md:grid-cols-2 gap-6 text-sm">
+
+                <div class="space-y-5">
+                    <!-- Comercio e Impacto Económico -->
+                    <div class="p-5 bg-white border border-gray-200 rounded-2xl">
+                        <span class="font-semibold text-emerald-700 block mb-2">📊 Comercio e Impacto Económico</span>
+                        • <a href="https://www.inegi.org.mx/temas/balanza/" target="_blank" class="text-blue-600 hover:underline">INEGI - Balanza Comercial de Mercancías 2025</a><br>
+                        • <a href="https://www.banxico.org.mx/" target="_blank" class="text-blue-600 hover:underline">Banco de México - Comercio Exterior e IED</a><br>
+                        • <a href="https://www.gob.mx/se" target="_blank" class="text-blue-600 hover:underline">Secretaría de Economía - Inversión Extranjera Directa</a>
+                    </div>
+
+                    <!-- Texto Oficial del T-MEC -->
+                    <div class="p-5 bg-white border border-gray-200 rounded-2xl">
+                        <span class="font-semibold text-[#003087] block mb-2">📜 Texto Oficial del T-MEC</span>
+                        • <a href="https://ustr.gov/trade-agreements/free-trade-agreements/united-states-mexico-canada-agreement" target="_blank" class="text-blue-600 hover:underline">USTR - Página oficial completa del T-MEC</a><br>
+                        • <a href="https://ustr.gov/sites/default/files/files/agreements/FTA/USMCA/Text/27_Anticorruption.pdf" target="_blank" class="text-blue-600 hover:underline">Capítulo 27 - Anticorrupción (PDF oficial)</a><br>
+                        • <a href="https://ustr.gov/sites/default/files/files/agreements/FTA/USMCA/Text/34_Final_Provisions.pdf" target="_blank" class="text-blue-600 hover:underline">Capítulo 34 - Disposiciones Finales (Cláusula de Revisión 2026)</a>
+                    </div>
+
+                    <!-- Capítulo 27 Anticorrupción -->
+                    <div class="p-5 bg-white border border-gray-200 rounded-2xl">
+                        <span class="font-semibold text-purple-700 block mb-2">⚖️ Capítulo 27 - Anticorrupción</span>
+                        • <a href="https://www.transparency.org/en/cpi/2025" target="_blank" class="text-blue-600 hover:underline">Transparency International - Corruption Perceptions Index 2025</a><br>
+                        • <a href="https://ustr.gov/sites/default/files/files/agreements/FTA/USMCA/Text/27_Anticorruption.pdf" target="_blank" class="text-blue-600 hover:underline">Texto oficial Capítulo 27 (USTR)</a><br>
+                        • <a href="https://www.oecd.org/corruption/" target="_blank" class="text-blue-600 hover:underline">OECD - Anticorrupción en Acuerdos Comerciales</a>
+                    </div>
                 </div>
-                <div class="space-y-4">
-                    <div id="ref-presupuesto" class="scroll-mt-20 p-2 rounded"><span class="font-semibold">Presupuesto de Egresos:</span><br>23-27. <a href="https://www.shcp.gob.mx/" target="_blank" class="text-blue-600 underline">SHCP (2025), Presupuesto de Egresos de la Federación 2022-2026, anexos.</a></div>
-                    <div id="ref-revision" class="scroll-mt-20 p-2 rounded"><span class="font-semibold">Revisión 2026 y posiciones:</span><br>28-40. <a href="https://www.wilsoncenter.org/" target="_blank" class="text-blue-600 underline">Wilson Center (2026)</a>; <a href="https://imco.org.mx/" target="_blank" class="text-blue-600 underline">IMCO (2026)</a>; <a href="https://www.csis.org/" target="_blank" class="text-blue-600 underline">CSIS (2026)</a>; <a href="https://crsreports.congress.gov/" target="_blank" class="text-blue-600 underline">CRS (2025)</a>; <a href="https://ustr.gov/" target="_blank" class="text-blue-600 underline">USTR (2026)</a>; <a href="https://www.gob.mx/se" target="_blank" class="text-blue-600 underline">Secretaría de Economía (2026)</a>; <a href="https://www.international.gc.ca/" target="_blank" class="text-blue-600 underline">Global Affairs Canada (2026)</a>; <a href="https://www.consejomexicano.org/" target="_blank" class="text-blue-600 underline">COMCE (2026)</a>; <a href="https://www.cdhowe.org/" target="_blank" class="text-blue-600 underline">C.D. Howe Institute (2026)</a>.</div>
-                    <div id="ref-timeline" class="scroll-mt-20 p-2 rounded"><span class="font-semibold">Cronología:</span><br>41-45. Textos oficiales TLCAN/T-MEC, <a href="https://crsreports.congress.gov/" target="_blank" class="text-blue-600 underline">CRS (2025).</a></div>
-                    <div class="p-2"><span class="font-semibold">Organismos y bases de datos:</span><br><a href="https://www.imf.org/" target="_blank" class="text-blue-600 underline">IMF (2025)</a>, <a href="https://www.worldbank.org/" target="_blank" class="text-blue-600 underline">World Bank (2025)</a>, <a href="https://www.wto.org/" target="_blank" class="text-blue-600 underline">WTO (2026)</a>, <a href="https://www.unep.org/" target="_blank" class="text-blue-600 underline">UNEP (2025)</a>, <a href="https://www.fao.org/" target="_blank" class="text-blue-600 underline">FAO/OMS (2024)</a>, <a href="https://www.itu.int/" target="_blank" class="text-blue-600 underline">ITU (2025)</a>, <a href="https://www.oecd.org/" target="_blank" class="text-blue-600 underline">OECD (2025-2026)</a>, <a href="https://www.inegi.org.mx/" target="_blank" class="text-blue-600 underline">INEGI (2026)</a>.</div>
+
+                <div class="space-y-5">
+                    <!-- Revisión 2026 y Análisis -->
+                    <div class="p-5 bg-white border border-gray-200 rounded-2xl">
+                        <span class="font-semibold text-amber-700 block mb-2">🔄 Revisión 2026 y Análisis Estratégico</span>
+                        • <a href="https://www.csis.org/analysis/usmca-review-2026" target="_blank" class="text-blue-600 hover:underline">CSIS - USMCA Review 2026: Pathways, Risks, and Strategic Considerations</a><br>
+                        • <a href="https://www.brookings.edu/collection/usmca-forward-2026/" target="_blank" class="text-blue-600 hover:underline">Brookings Institution - USMCA Forward 2026</a><br>
+                        • <a href="https://ustr.gov/" target="_blank" class="text-blue-600 hover:underline">USTR - Posición oficial de Estados Unidos</a>
+                    </div>
+
+                    <!-- Sección 232 y Sector Automotriz -->
+                    <div class="p-5 bg-white border border-gray-200 rounded-2xl">
+                        <span class="font-semibold text-red-700 block mb-2">🚗 Sección 232 y Sector Automotriz</span>
+                        • <a href="https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2025/comext_o/balcom_o2025_12.pdf" target="_blank" class="text-blue-600 hover:underline">INEGI - Balanza Comercial y Datos Automotriz 2025</a><br>
+                        • <a href="https://ustr.gov/" target="_blank" class="text-blue-600 hover:underline">USTR - Comunicados oficiales Sección 232</a><br>
+                        • <a href="https://crsreports.congress.gov/" target="_blank" class="text-blue-600 hover:underline">CRS - Section 232 Tariffs: Issues for Congress (2026)</a>
+                    </div>
+
+                    <!-- Presupuesto -->
+                    <div class="p-5 bg-white border border-gray-200 rounded-2xl">
+                        <span class="font-semibold text-blue-700 block mb-2">💰 Implicaciones Presupuestarias (Sección 5)</span>
+                        • <a href="https://www.finanzaspublicas.hacienda.gob.mx/work/models/Finanzas_Publicas/docs/paquete_economico/cgpe/cgpe_2026.pdf" target="_blank" class="text-blue-600 hover:underline">SHCP - Criterios Generales de Política Económica 2026 (PDF)</a><br>
+                        • <a href="https://www.gob.mx/cms/uploads/attachment/file/1039166/PEF_2026.pdf" target="_blank" class="text-blue-600 hover:underline">Presupuesto de Egresos de la Federación 2026 (PEF)</a><br>
+                        • <a href="https://www.transparenciapresupuestaria.gob.mx/es/PTP/Precriterios_de_Politica_Economica_2026" target="_blank" class="text-blue-600 hover:underline">Precriterios de Política Económica 2026</a>
+                    </div>
+
+                    <!-- Nota final consolidada -->
+                    <div class="p-5 bg-gray-50 border border-gray-200 rounded-2xl text-xs leading-relaxed">
+                        <strong>Fuentes principales utilizadas en gráficos y tablas:</strong><br>
+                        • INEGI – Balanza Comercial y Estadística Automotriz 2025<br>
+                        • Transparency International – CPI 2025<br>
+                        • USTR – Textos oficiales del T-MEC<br>
+                        • CSIS y Brookings Institution – Análisis de la Revisión 2026<br>
+
+                        <strong>Fuentes de Metodología:</strong><br>
+                        • OECD - Foreign Direct Investment, Corruption and the OECD Anti-Bribery Convention<br>
+                        • Center for Automotive Research (CAR) - Estudios de impacto aranceles Sección 232<br>
+                        • USITC - Reportes sobre reglas de origen y efectos económicos del T-MEC <br><br>
+
+                        <strong>Nota:</strong> Las cifras cuantitativas presentadas en las tablas y gráficos son estimaciones conservadoras basadas en fuentes oficiales. No existen datos oficiales consolidados del impacto exacto del Capítulo 27 ni de los aranceles Sección 232 por parte de los tres países.<br><br>
+                    </div>
                 </div>
             </div>
-            <div class="mt-6 p-3 bg-gray-100 rounded-xl text-[11px] text-gray-500">Nota: Todos los datos económicos y presupuestarios están respaldados por fuentes oficiales y proyecciones de organismos especializados a mayo de 2026. Los enlaces dirigen a sitios institucionales. Esta página tiene fines educativos y de análisis.</div>
         </section>
     </main>
 
     <footer class="bg-[#003087] text-white py-8 mt-8 print:hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-3 text-center md:text-left text-xs">
             <div class="flex items-center gap-2"><div class="text-2xl font-black tracking-tighter">T-MEC</div><div class="opacity-70">Análisis integral 2026</div></div>
-            <div class="opacity-70">Última actualización: 13 de mayo de 2026.</div>
+            <div class="opacity-70">Última actualización: 15 de mayo de 2026.</div>
             <div class="flex gap-4 text-lg"><i class="fa-brands fa-x-twitter hover:text-[#ffd700] cursor-pointer"></i><i class="fa-brands fa-linkedin hover:text-[#ffd700] cursor-pointer"></i></div>
         </div>
     </footer>
@@ -1083,7 +1555,7 @@ canvas { max-height: 380px; width: 100% !important; }
                             <div class="bg-blue-50 p-3 rounded-lg"><div class="font-semibold text-blue-800">⚖️ Análisis legal</div><p class="text-gray-700">${cap.legal}</p></div>
                             <div class="bg-gray-100 p-3 rounded-lg"><div class="font-semibold text-gray-700">🔄 Comparación con el TLCAN</div><p><strong>Capítulo equivalente:</strong> ${cap.tlcan.capitulo}</p><p><strong>Principales cambios:</strong> ${cap.tlcan.cambios}</p></div>
                             <div><div class="font-semibold text-amber-700">Referencias específicas</div><p class="text-xs">${cap.biblio}</p></div>
-                            <div class="text-[10px] text-gray-400 border-t pt-3 mt-2">Fuente: Texto oficial del T-MEC (2020), análisis doctrinal y reportes de organismos internacionales 2024-2026. Enlaces en bibliografía principal.</div>
+                            <div class="text-[10px] text-gray-400 border-t pt-3 mt-2">Fuente: Texto oficial del T-MEC (2020), análisis y reportes de organismos internacionales 2024-2026. Enlaces en bibliografía principal.</div>
                         </div>
                     </div>
                 </div>`;
@@ -1145,16 +1617,164 @@ canvas { max-height: 380px; width: 100% !important; }
         // Gráficas
         function createTradeChart() {
             const ctx = document.getElementById('tradeChart');
-            if(ctx) new Chart(ctx, { type:'line', data:{ labels:['2015','2017','2019','2020','2021','2022','2023','2024','2025'], datasets:[{ label:'Exportaciones México a EE.UU. (miles M USD)', data:[290,320,340,310,385,420,455,475,490], borderColor:'#003087', backgroundColor:'rgba(0,48,135,0.05)', tension:0.4, borderWidth:3, fill:true }] }, options:{ responsive:true, maintainAspectRatio:true, plugins:{ legend:{ position:'top' } }, scales:{ y:{ beginAtZero:true } } } });
+            if(ctx) new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['2019', '2020', '2021', '2022', '2023', '2024', '2025'],
+                    datasets: [{
+                        label: 'Exportaciones México a EE.UU. (mil millones USD)',
+                        data: [340, 310, 385, 420, 455, 506, 535],
+                        borderColor: '#003087',
+                        backgroundColor: 'rgba(0, 48, 135, 0.1)',
+                        tension: 0.4,
+                        borderWidth: 3,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: { position: 'top' }
+                    },
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
         }
         function createSectorChart() {
             const ctx = document.getElementById('sectorChart');
-            if(ctx) new Chart(ctx, { type:'bar', data:{ labels:['Automotriz','Electrónica','Agroindustria','Maquinaria','Otros'], datasets:[{ label:'% exportado', data:[28,22,15,12,23], backgroundColor:['#003087','#1e40af','#3b82f6','#60a5fa','#93c5fd'], borderRadius:6 }] }, options:{ responsive:true, maintainAspectRatio:true, plugins:{ legend:{ display:false } }, scales:{ y:{ max:35, ticks:{ callback:(v)=>v+'%' } } } } });
+            if(ctx) new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Automotriz', 'Electrónica y Eléctrica', 'Maquinaria y Equipo', 'Otros Manufactureros'],
+                    datasets: [{
+                        label: '% de exportaciones manufactureras',
+                        data: [27, 22, 16, 35],
+                        backgroundColor: ['#003087', '#1e40af', '#3b82f6', '#93c5fd'],
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: { 
+                            max: 40, 
+                            ticks: { callback: (v) => v + '%' } 
+                        }
+                    }
+                }
+            });
         }
+        // Gráfico de corrupción
+        function createCorruptionChart() {
+            const ctx = document.getElementById('corruptionChart');
+            if(ctx) {
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['2019','2020','2021','2022','2023','2024','2025'],
+                        datasets: [
+                            { 
+                                label: 'México', 
+                                data: [29, 31, 31, 31, 31, 26, 27], 
+                                borderColor: '#006847', 
+                                backgroundColor: 'transparent', 
+                                tension: 0.3 
+                            },
+                            { 
+                                label: 'EE.UU.', 
+                                data: [69, 67, 67, 69, 69, 65, 64], 
+                                borderColor: '#002664', 
+                                backgroundColor: 'transparent', 
+                                tension: 0.3 
+                            },
+                            { 
+                                label: 'Canadá', 
+                                data: [77, 77, 74, 74, 76, 76, 75], 
+                                borderColor: '#CC0000', 
+                                backgroundColor: 'transparent', 
+                                tension: 0.3 
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        plugins: { 
+                            legend: { position: 'top' },
+                            tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ${ctx.raw} puntos` } }
+                        },
+                        scales: { 
+                            y: { 
+                                min: 20, 
+                                max: 90, 
+                                title: { display: true, text: 'IPC (0-100)' } 
+                            } 
+                        }
+                    }
+                });
+            }
+        }
+
+        // Gráfico de comercio automotriz México-EE.UU.
+        function createAutoTradeChart() {
+            const ctx = document.getElementById('autoTradeChart');
+            if(ctx) {
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['2019', '2020', '2021', '2022', '2023', '2024', '2025'],
+                        datasets: [
+                            { 
+                                label: 'Exportaciones de vehículos ligeros (millones de unidades)', 
+                                data: [3.55, 2.85, 3.10, 3.35, 3.50, 3.48, 3.38], 
+                                borderColor: '#003087', 
+                                backgroundColor: 'transparent', 
+                                tension: 0.3 
+                            },
+                            { 
+                                label: 'Exportaciones de autopartes (índice 2019=100)', 
+                                data: [100, 92, 105, 112, 118, 115, 108], 
+                                borderColor: '#dc2626', 
+                                backgroundColor: 'transparent', 
+                                tension: 0.3 
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        plugins: { 
+                            tooltip: { 
+                                callbacks: { 
+                                    label: (ctx) => ctx.dataset.label.includes('unidades') 
+                                        ? `${ctx.raw} millones de unidades` 
+                                        : `${ctx.raw} (índice)` 
+                                } 
+                            }
+                        },
+                        scales: { 
+                            y: { 
+                                title: { display: true, text: 'Volumen / Índice' } 
+                            } 
+                        }
+                    }
+                });
+            }
+        }
+
         window.onload = () => { 
             createTradeChart(); 
             createSectorChart();
             generarTablaImpresion();
+            createCorruptionChart();
+            createAutoTradeChart();
             };
         document.querySelectorAll('a[href^="#"]:not(.cita-link)').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
